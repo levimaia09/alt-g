@@ -91,7 +91,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <i class="fa-solid fa-shop"></i>Loja
                                 <span class="bot-line"></span>
                             </a>
@@ -131,8 +131,6 @@
                     <img class="img_perf" src="<?php echo $imgurl?>" alt="">
                 </ul>
             </div>
-            
-
         </div>
     </div> <!-- End header area -->
     
@@ -145,6 +143,18 @@
     
 
     <!-- End mainmenu area -->
+    <div class="container-group">
+        <div class="search-group">  
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Buscar por..." aria-label="Search for..."
+                            aria-describedby="btnNavbarSearch" />
+                        <button class="btn btn-dark" id="btnNavbarSearch" type="button"><i
+                            class="fas fa-search"></i></button>
+                    </div>
+            </form>
+        </div>
+    </div>
     
     <div class="slider-area">
         	<!-- Slider -->
@@ -158,6 +168,10 @@
 							<h4 class="caption subtitle">Dual SIM</h4>
 							<a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
 						</div> -->
+                        <!-- <div class="text-slider">
+                            <h1>Compre já!</h1>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum aliquam leo. Nam lorem purus, pharetra in orci id, rhoncus feugiat purus. Aliquam varius mi pretium urna porttitor, a mattis dolor pretium. Suspendisse id elementum ligula</span>
+                        </div> -->
 					</li>
 
 					<li><img src="../images/img/callofduty.webp" alt="Slide">
@@ -344,7 +358,7 @@
                         <a href="" class="wid-view-more">Ver todos</a>
                         <div class="single-wid-product">
                             <a href="single-product.html"><img src="../images/img/godofwar.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
+                            <h2><a href="single-product.html">God of War</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -357,8 +371,8 @@
                             </div>                            
                         </div>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="../images/img/product-thumb-2.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Apple new mac book 2015</a></h2>
+                            <a href="single-product.html"><img src="../images/img/minecraft3.webp" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">Minecraft</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -370,9 +384,10 @@
                                 <ins>$400.00</ins> <del>$425.00</del>
                             </div>                            
                         </div>
+
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="../images/img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Apple new i phone 6</a></h2>
+                            <a href="single-product.html"><img src="../images/img/terraria3.png" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">Terraria</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -384,6 +399,22 @@
                                 <ins>$400.00</ins> <del>$425.00</del>
                             </div>                            
                         </div>
+
+                        <div class="single-wid-product">
+                            <a href="single-product.html"><img src="../images/img/among.jpg" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">Among Us</a></h2>
+                            <div class="product-wid-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>$400.00</ins> <del>$425.00</del>
+                            </div>                            
+                        </div>
+                            
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -391,8 +422,8 @@
                         <h2 class="product-wid-title">Recomendações</h2>
                         <a href="#" class="wid-view-more">Ver todos</a>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="../images/img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Sony playstation microsoft</a></h2>
+                            <a href="single-product.html"><img src="../images/img/godofwar.jpg" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">God of War</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -405,8 +436,8 @@
                             </div>                            
                         </div>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="../images/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Sony Smart Air Condtion</a></h2>
+                            <a href="single-product.html"><img src="../images/img/minecraft3.webp" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">Minecraft</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -418,9 +449,25 @@
                                 <ins>$400.00</ins> <del>$425.00</del>
                             </div>                            
                         </div>
+
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="../images/img/product-thumb-2.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Samsung gallaxy note 4</a></h2>
+                            <a href="single-product.html"><img src="../images/img/terraria3.png" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">Terraria</a></h2>
+                            <div class="product-wid-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>$400.00</ins> <del>$425.00</del>
+                            </div>                            
+                        </div>
+
+                        <div class="single-wid-product">
+                            <a href="single-product.html"><img src="../images/img/among.jpg" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">Among Us</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -439,8 +486,8 @@
                         <h2 class="product-wid-title">Mais novos</h2>
                         <a href="#" class="wid-view-more">Ver todosl</a>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="../images/img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Apple new i phone 6</a></h2>
+                            <a href="single-product.html"><img src="../images/img/godofwar.jpg" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">God of War</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -453,8 +500,8 @@
                             </div>                            
                         </div>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="../images/img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Samsung gallaxy note 4</a></h2>
+                            <a href="single-product.html"><img src="../images/img/minecraft3.webp" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">Minecraft</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -466,9 +513,10 @@
                                 <ins>$400.00</ins> <del>$425.00</del>
                             </div>                            
                         </div>
+
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="../images/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Sony playstation microsoft</a></h2>
+                            <a href="single-product.html"><img src="../images/img/terraria3.png" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">Terraria</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -480,6 +528,22 @@
                                 <ins>$400.00</ins> <del>$425.00</del>
                             </div>                            
                         </div>
+
+                        <div class="single-wid-product">
+                            <a href="single-product.html"><img src="../images/img/among.jpg" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">Among Us</a></h2>
+                            <div class="product-wid-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>$400.00</ins> <del>$425.00</del>
+                            </div>                            
+                        </div>
+                        
                     </div>
                 </div>
             </div>

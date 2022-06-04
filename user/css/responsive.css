@@ -68,10 +68,7 @@ input[type="submit"], button[type="submit"] {
   }
 
 }
-
-@media only screen and (max-width: 1100px){
   
-
 /* Tablet Layout: 768px. */
 @media only screen and (min-width: 768px) and (max-width: 991px) { 
 .user-menu, .header-right ul.list-inline {
