@@ -126,8 +126,8 @@
             
             <div class="header-right">
                 <ul>
-                    <i style="margin-right: 10px;" class="fa-solid fa-bell"></i>
-                    <i style="margin-right: 10px;" class="fa-solid fa-gear"></i>
+                    <i class="fa-solid fa-bell"></i>
+                    <i class="fa-solid fa-gear"></i>
                     <img class="img_perf" src="<?php echo $imgurl?>" alt="">
                 </ul>
             </div>
@@ -146,7 +146,7 @@
 
     <!-- End mainmenu area -->
     
-    <div style="width: 100%; max-width: 1000px; height: auto; max-height: 539px; margin-bottom: 50px; " class="slider-area">
+    <div class="slider-area">
         	<!-- Slider -->
 			<div class="block-slider block-slider4">
 				<ul class="" id="bxslider-home4">
@@ -205,12 +205,7 @@
                         <p>30 dias de regresso</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-promo promo2">
-                        <i class="fa fa-truck"></i>
-                        <p>Envio gratuito</p>
-                    </div>
-                </div>
+
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo promo3">
                         <i class="fa fa-lock"></i>
@@ -348,7 +343,7 @@
                         <h2 class="product-wid-title">Mais vendidos</h2>
                         <a href="" class="wid-view-more">Ver todos</a>
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="../images/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
+                            <a href="single-product.html"><img src="../images/img/godofwar.jpg" alt="" class="product-thumb"></a>
                             <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
@@ -491,29 +486,227 @@
         </div>
     </div> <!-- End product widget area -->
 
-    <!-- apoiadores -->
-    <h2 class="section-title">Apoiadores</h2>
-    <div class="brands-area">
+    <div class="maincontent-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="brand-wrapper">
-                        <div class="brand-list">
-                            <img src="../images/img/rockstar.png" alt="">
-                            <img src="../images/img/mojang.jpg" alt="">
-                            <img src="../images/img/ubisoft.svg" alt="">
-                            <img src="../images/img/teamcherry.png" alt="">
-                            <img src="../images/img/xbox.png" alt="">
-                            <img src="../images/img/ea.png" alt="">
-                            <img src="../images/img/aorus.webp" alt="">
-                            <img src="../images/img/apple.svg" alt="">                            
+                    <div class="latest-product">
+                        <h2 class="section-title">Atualizados recentemente</h2>
+                        <div class="product-carousel">
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img  src="../images/img/god2.jfif" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">God Of War</a></h2>
+                                
+                                <div class="product-carousel-price">
+                                    <ins>$700.00</ins> <del>$100.00</del>
+                                </div> 
+                            </div>
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="../images/img/terraria4.jfif" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">Terraria</a></h2>
+                                <div class="product-carousel-price">
+                                    <ins>$899.00</ins> <del>$999.00</del>
+                                </div> 
+                            </div>
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="../images/img/minecraft3.webp" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">Minecraft</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>$400.00</ins> <del>$425.00</del>
+                                </div>                                 
+                            </div>
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="../images/img/pokemonsoul.jfif" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">Pokemon</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>$200.00</ins> <del>$225.00</del>
+                                </div>                            
+                            </div>
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="../images/img/stardewvalley.jpg" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">Stardew Valley</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>$1200.00</ins> <del>$1355.00</del>
+                                </div>                                 
+                            </div>
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="../images/img/hollowknight.jpg" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">Hollow Knight</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>$400.00</ins>
+                                </div>                            
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> <!-- End main content area -->
+
+    <div class="maincontent-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="latest-product">
+                        <h2 class="section-title">Recomendados</h2>
+                        <div class="product-carousel">
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img  src="../images/img/god2.jfif" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">God Of War</a></h2>
+                                
+                                <div class="product-carousel-price">
+                                    <ins>$700.00</ins> <del>$100.00</del>
+                                </div> 
+                            </div>
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="../images/img/terraria4.jfif" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">Terraria</a></h2>
+                                <div class="product-carousel-price">
+                                    <ins>$899.00</ins> <del>$999.00</del>
+                                </div> 
+                            </div>
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="../images/img/minecraft3.webp" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">Minecraft</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>$400.00</ins> <del>$425.00</del>
+                                </div>                                 
+                            </div>
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="../images/img/pokemonsoul.jfif" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">Pokemon</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>$200.00</ins> <del>$225.00</del>
+                                </div>                            
+                            </div>
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="../images/img/stardewvalley.jpg" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">Stardew Valley</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>$1200.00</ins> <del>$1355.00</del>
+                                </div>                                 
+                            </div>
+
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img src="../images/img/hollowknight.jpg" alt="">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="single-product.html">Hollow Knight</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>$400.00</ins>
+                                </div>                            
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End main content area -->
 
     <!-- footer area -->
     <div class="footer-top-area">

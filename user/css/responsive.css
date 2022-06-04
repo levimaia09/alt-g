@@ -29,9 +29,17 @@ input[type="submit"], button[type="submit"] {
     max-height: 45px;
   }
 
+  .slider-area{
+    margin: 100px auto;
+  }
+
   .header-right .img_perf{
     width: 40px;
     height: 40px;
+  }
+
+  .header-right i{
+    font-size: 18px;
   }
 }
 
@@ -39,6 +47,10 @@ input[type="submit"], button[type="submit"] {
   .navbar-list .nav li a{
     font-size: 12px;
     min-width: 80px;
+  }
+
+  .slider-area{
+    margin: 80px auto;
   }
 
   .mainmenu-area .logo img{
@@ -49,6 +61,10 @@ input[type="submit"], button[type="submit"] {
   .header-right .img_perf{
     width: 38px;
     height: 38px;
+  }
+
+  .header-right i{
+    font-size: 16px;
   }
 
 }
