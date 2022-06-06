@@ -1,3 +1,5 @@
+/* formatações gerais gerais */
+
 *{
     box-sizing: border-box;
     padding: 0;
@@ -50,6 +52,7 @@ a{
     text-decoration: none;
 }
 
+/* área do menu */
 .header-area {
     background: none repeat scroll 0 0 #393939;
 }
@@ -155,6 +158,21 @@ a{
     transform-origin: top center;
 }
 
+/* quando estão ativos */
+.nav>li.active>a{
+    background-color: rgb(60, 60, 60);
+    color: #4272d7;
+}
+
+.nav>li.active>a .bot-line{
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
 
 #btn-mobile {
     display: none;
@@ -172,9 +190,50 @@ a{
     grid-template-columns: 15% 70% 15%;
 }
 
+.div-img {
+    display: grid;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-height: 80px;
+}
+
+.div-img img{
+    width: 60px;
+    height: 60px;
+}
+
+.header-account{
+    position: absolute;
+    top: 76px;
+    right: 10px;
+    z-index: 99;
+    width: 310px;
+    height: 350px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid rgba(79, 79, 79, 0.198);
+    box-shadow: 0px 5px 10px 0px rgb(0 0 0 / 10%);
+    text-transform: none;
+}
+
+.div-img {
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+.account-date span{
+    display: block;
+}
+
 .header-right ul{
     margin: 0; 
     padding: 0;
+}
+
+.header-right a{
+    margin-left: 5px; 
+    color: rgb(0, 0, 0);
 }
 
 .header-right i{
@@ -182,10 +241,37 @@ a{
     cursor: pointer;
 }
 
-.header-right{
+.header-right div{
+    min-height: 0;
+}
+
+.header-account ul{
+    width: 100%;
+    margin-top: 20px;
+    border-top: 1px solid rgba(75, 75, 75, 0.291);
+    border-bottom: 1px solid rgba(75, 75, 75, 0.291);
+}
+
+.header-account li{
     display: flex;
-    justify-self: end;
-    justify-items: end;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    padding-left: 10px;
+    list-style: none;
+    transition: .3s;
+}
+
+.header-right li:hover{
+    background-color: #5784ff;
+    color: rgb(255, 255, 255);
+}
+
+.header-img{
+    display: flex;
+    justify-content: end;
     align-items: center;
     font-size: 20px;
     color: #CCCCCC;
@@ -199,6 +285,8 @@ a{
     margin-right: 5px;
     cursor: pointer;
 }
+
+/* para transformar o menu em um menu hamburguer */
 
 @media only screen and (min-width: 200px) and (max-width: 715px){
 
@@ -291,6 +379,7 @@ a{
     }
 }
 
+/* fim da área do menu */
 
 .shopping-item {
     border: 1px solid #ddd;
@@ -362,7 +451,6 @@ a{
 .form-control:focus {
     border-color: var(--cinza2);
     box-shadow: none;
-
 }
 
 .slider-area div{

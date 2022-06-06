@@ -102,13 +102,13 @@
                                 <span class="bot-line"></span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="edit_account.php">
                                 <i class="fa-solid fa-file-invoice"></i>Conta
                                 <span class="bot-line"></span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="../php/logout.php">
                                 <i class="fa-solid fa-right-from-bracket"></i>Logout
                                 <span class="bot-line"></span>
@@ -125,11 +125,41 @@
             
             
             <div class="header-right">
-                <ul>
-                    <i class="fa-solid fa-bell"></i>
-                    <i class="fa-solid fa-gear"></i>
-                    <img class="img_perf" src="<?php echo $imgurl?>" alt="">
-                </ul>
+                <div class="header-img">
+                    <ul>
+                        <i class="fa-solid fa-bell"></i>
+                        <i class="fa-solid fa-gear"></i>
+                        <img id="img-perf" class="img_perf" src="<?php echo $imgurl?>" alt="">
+                    </ul>
+                </div>
+
+                <div class="header-account">
+                    <div class="div-img">
+                        <img class="img_perf" src="<?php echo $imgurl?>" alt="">
+                        <div class="account-date">
+                            <span><?php echo $row['username'];?></span>
+                            <span><?php echo $row['email'];?></span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-user"></i>
+                            <a href="#">Conta</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-gear"></i>
+                            <a href="#">Configurações</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-sack-dollar"></i>
+                            <a href="#">Faturamento</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-power-off"></i>
+                            <a href="#">Logout</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div> <!-- End header area -->

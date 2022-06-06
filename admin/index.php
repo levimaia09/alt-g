@@ -12,11 +12,10 @@
     <!-- Title Page-->
     <title>ALT-G admin</title>
 
-    <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <!-- Google fonts: Oswald-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS-->
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
@@ -32,6 +31,9 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/35355885e0.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -64,91 +66,40 @@
                     </div>
                     <div class="header__navbar">
                         <ul class="list-unstyled">
-                            <li class="has-sub">
-                                <a href="#">
-                                    <i class="fas fa-tachometer-alt"></i>Dashboard
+                            <li>
+                                <a href="<?php echo $urluser."index.php";?>">
+                                    <i class="fa-solid fa-house-user"></i>
+                                    <span class="bot-line"></span>Início</a>
+                            </li>
+                            <li class="has-sub active">
+                                <a href="">
+                                    <i class="fa-solid fa-lock"></i>admin
                                     <span class="bot-line"></span>
                                 </a>
-                                <ul class="header3-sub-list list-unstyled">
-                                    <li>
-                                        <a href="index.html">Dashboard 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="index2.html">Dashboard 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="index3.html">Dashboard 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="index4.html">Dashboard 4</a>
-                                    </li>
-                                </ul>
                             </li>
                             <li>
-                                <a href="<?php echo $urluser."index.php"; ?>">
-                                    <i class="fas fa-shopping-basket"></i>
-                                    <span class="bot-line"></span>eCommerce</a>
-                            </li>
-                            <li>
-                                <a href="table.html">
-                                    <i class="fas fa-trophy"></i>
-                                    <span class="bot-line"></span>Features</a>
+                                <a href="<?php echo $urluser."shop.php";?>">
+                                    <i class="fa-solid fa-shop"></i>Loja
+                                    <span class="bot-line"></span>
+                                </a>
                             </li>
                             <li class="has-sub">
-                                <a href="#">
-                                    <i class="fas fa-copy"></i>
-                                    <span class="bot-line"></span>Pages</a>
-                                <ul class="header3-sub-list list-unstyled">
-                                    <li>
-                                        <a href="login.html">Login</a>
-                                    </li>
-                                    <li>
-                                        <a href="register.html">Register</a>
-                                    </li>
-                                    <li>
-                                        <a href="forget-pass.html">Forget Password</a>
-                                    </li>
-                                </ul>
+                            <a href="<?php echo $urluser."cart.html";?>">
+                                <i class="fa-solid fa-book-bookmark"></i>Biblioteca
+                                <span class="bot-line"></span>
+                            </a>
                             </li>
                             <li class="has-sub">
-                                <a href="#">
-                                    <i class="fas fa-desktop"></i>
-                                    <span class="bot-line"></span>UI Elements</a>
-                                <ul class="header3-sub-list list-unstyled">
-                                    <li>
-                                        <a href="button.html">Button</a>
-                                    </li>
-                                    <li>
-                                        <a href="badge.html">Badges</a>
-                                    </li>
-                                    <li>
-                                        <a href="tab.html">Tabs</a>
-                                    </li>
-                                    <li>
-                                        <a href="card.html">Cards</a>
-                                    </li>
-                                    <li>
-                                        <a href="alert.html">Alerts</a>
-                                    </li>
-                                    <li>
-                                        <a href="progress-bar.html">Progress Bars</a>
-                                    </li>
-                                    <li>
-                                        <a href="modal.html">Modals</a>
-                                    </li>
-                                    <li>
-                                        <a href="switch.html">Switchs</a>
-                                    </li>
-                                    <li>
-                                        <a href="grid.html">Grids</a>
-                                    </li>
-                                    <li>
-                                        <a href="fontawesome.html">FontAwesome</a>
-                                    </li>
-                                    <li>
-                                        <a href="typo.html">Typography</a>
-                                    </li>
-                                </ul>
+                                <a href="<?php echo $urluser."edit_account.php";?>">
+                                    <i class="fa-solid fa-file-invoice"></i>Conta
+                                    <span class="bot-line"></span>
+                                </a>
+                            </li>
+                            <li class="has-sub">
+                                <a href="../php/logout.php">
+                                    <i class="fa-solid fa-right-from-bracket"></i>Logout
+                                    <span class="bot-line"></span>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -235,7 +186,7 @@
                                     <img class="perfil" src="<?php echo $urlimg.$row['image'];?>" alt="perfil image" />
                                 </div>
                                 <div class="content">
-                                    <a class="js-acc-btn" href="#">john doe</a>
+                                    <a class="js-acc-btn" href="#"><?php echo $row['username'];?></a>
                                 </div>
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">
@@ -470,23 +421,21 @@
                 <div class="account-wrap">
                     <div class="account-item account-item--style2 clearfix js-item-menu">
                         <div class="image">
-                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                            <img class="perfil" src="<?php echo $urlimg.$row['image'];?>" alt="img perf" />
                         </div>
                         <div class="content">
-                            <a class="js-acc-btn" href="#">john doe</a>
+                            <a class="js-acc-btn" href="#"><?php echo $row['username'];?></a>
                         </div>
                         <div class="account-dropdown js-dropdown">
                             <div class="info clearfix">
                                 <div class="image">
-                                    <a href="#">
-                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
-                                    </a>
+                                    <img class="perfil" src="<?php echo $urlimg.$row['image'];?>" alt="img perf" />
                                 </div>
                                 <div class="content">
                                     <h5 class="name">
-                                        <a href="#">john doe</a>
+                                        <a href="#"><?php echo $row['username'];?></a>
                                     </h5>
-                                    <span class="email">johndoe@example.com</span>
+                                    <span class="email"><?php echo $row['email'];?></span>
                                 </div>
                             </div>
                             <div class="account-dropdown__body">
@@ -523,23 +472,19 @@
                         <div class="col-md-12">
                             <div class="au-breadcrumb-content">
                                 <div class="au-breadcrumb-left">
-                                    <span class="au-breadcrumb-span">You are here:</span>
-                                    <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                        <li class="list-inline-item active">
-                                            <a href="#">Home</a>
-                                        </li>
-                                        <li class="list-inline-item seprate">
-                                            <span>/</span>
-                                        </li>
-                                        <li class="list-inline-item">Dashboard</li>
-                                    </ul>
+            
+                                <div class="container-group">
+                                    <div class="search-group">  
+                                        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                                                <div class="input-group">
+                                                    <input class="form-control" type="text" placeholder="Buscar por..." aria-label="Search for..."
+                                                        aria-describedby="btnNavbarSearch" />
+                                                    <button class="btn btn-dark" id="btnNavbarSearch" type="button"><i
+                                                        class="fas fa-search"></i></button>
+                                                </div>
+                                        </form>
+                                    </div>
                                 </div>
-                                <form class="au-form-icon--sm" action="" method="post">
-                                    <input class="au-input--w300 au-input--style2" type="text" placeholder="Search for datas &amp; reports...">
-                                    <button class="au-btn--submit2" type="submit">
-                                        <i class="zmdi zmdi-search"></i>
-                                    </button>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -552,7 +497,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="title-4">Welcome back
+                            <h1 class="title-4">Bem vindo
                                 <span><?php echo strtok($row['username']," ");?></span>        
                             </h1>
                             <hr class="line-seprate">

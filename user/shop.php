@@ -78,7 +78,7 @@
                 </div> 
                 <div class="navbar-list">
                     <ul class="nav">
-                        <li class="active">
+                        <li>
                             <a href="index.php">
                                 <i class="fa-solid fa-house-user"></i>Início
                                 <span class="bot-line"></span>
@@ -90,7 +90,7 @@
                                 <span class="bot-line"></span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="shop.html">
                                 <i class="fa-solid fa-shop"></i>Loja
                                 <span class="bot-line"></span>
@@ -102,13 +102,13 @@
                                 <span class="bot-line"></span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="edit_account.php">
                                 <i class="fa-solid fa-file-invoice"></i>Conta
                                 <span class="bot-line"></span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="../php/logout.php">
                                 <i class="fa-solid fa-right-from-bracket"></i>Logout
                                 <span class="bot-line"></span>
