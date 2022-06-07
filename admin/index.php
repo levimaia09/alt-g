@@ -31,9 +31,14 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="../user/style.css">
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/35355885e0.js" crossorigin="anonymous"></script>
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
 </head>
 
@@ -53,26 +58,36 @@
         $result = mysqli_query($mysqli, "SELECT * FROM login WHERE id=$id ");
         $row = mysqli_fetch_assoc($result);
         $urlimg = "../images/img_perfil/"; 
+        $imgurl = "../images/img_perfil/".$row['image'];
 
     ?>
 
     <div class="page-wrapper">
         <!-- HEADER DESKTOP-->
-        <header class="header-desktop3 d-none d-lg-block">
-            <div class="section__content section__content--p35">
-                <div class="header3-wrap">
-                    <div class="header__logo">
-                        <img class="logo-img" src="../images/img/logo-altg.png" alt="alt-g" />
-                    </div>
-                    <div class="header__navbar">
-                        <ul class="list-unstyled">
+        <div class="header-area">
+            <div class="mainmenu-area">
+
+                <div class="logo">
+                    <img src="../images/../images/img/logo-altg.png">
+                </div>
+
+                <div id="nav-bar" class="nav-bar">
+                    <div class="navbar-header">
+                        <button id="btn-mobile">
+                            Menu
+                            <span id="hamburguer"></span>
+                        </button>
+                    </div> 
+                    <div class="navbar-list">
+                        <ul class="nav">
                             <li>
                                 <a href="<?php echo $urluser."index.php";?>">
-                                    <i class="fa-solid fa-house-user"></i>
-                                    <span class="bot-line"></span>Início</a>
+                                    <i class="fa-solid fa-house-user"></i>Início
+                                    <span class="bot-line"></span>
+                                </a>
                             </li>
-                            <li class="has-sub active">
-                                <a href="">
+                            <li  class="active">
+                                <a href="<?php echo $urladmin."index.php"; ?>">
                                     <i class="fa-solid fa-lock"></i>admin
                                     <span class="bot-line"></span>
                                 </a>
@@ -83,385 +98,72 @@
                                     <span class="bot-line"></span>
                                 </a>
                             </li>
-                            <li class="has-sub">
-                            <a href="<?php echo $urluser."cart.html";?>">
-                                <i class="fa-solid fa-book-bookmark"></i>Biblioteca
-                                <span class="bot-line"></span>
-                            </a>
-                            </li>
-                            <li class="has-sub">
-                                <a href="<?php echo $urluser."edit_account.php";?>">
-                                    <i class="fa-solid fa-file-invoice"></i>Conta
+                            <li>
+                                <a href="<?php echo $urluser."cart.html";?>">
+                                    <i class="fa-solid fa-book-bookmark"></i>Biblioteca
                                     <span class="bot-line"></span>
                                 </a>
                             </li>
-                            <li class="has-sub">
+                            
+                            
+                            <!-- <li><a href="single-product.html"><span class="bot-line"></span>Produto único</a></li>
+                            <li><a href="checkout.html"><span class="bot-line"></span>Checkout</a></li>
+                            <li><a href="#"><span class="bot-line"></span>Categorias</a></li>
+                            <li><a href="#"><span class="bot-line"></span>Contato</a></li> -->
+                        </ul>
+                    </div>  
+                </div>
+                
+                
+                <div class="header-right">
+                    <div class="header-img">
+                        <ul>
+                            <i class="fa-solid fa-bell"></i>
+                            <i class="fa-solid fa-gear"></i>
+                            <img id="img-perf" class="img_perf" src="<?php echo $imgurl?>" alt="">
+                        </ul>
+                    </div>
+
+                    <div id="header-account" class="header-account">
+                        <div class="div-img">
+                            <img class="img_perf" src="<?php echo $imgurl?>" alt="">
+                            <div class="account-date">
+                                <span><?php echo $row['username'];?></span>
+                                <span><?php echo $row['email'];?></span>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="edit_account.php">
+                                    <i class="fa-solid fa-user"></i>
+                                    Conta
+                                </a>
+                            </li>
+                            <li>
+                                
+                                <a href="#">
+                                    <i class="fa-solid fa-gear"></i>
+                                    Configurações
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-solid fa-sack-dollar"></i>
+                                    Faturamento
+                                </a>
+                            </li>
+                            <li>
                                 <a href="../php/logout.php">
-                                    <i class="fa-solid fa-right-from-bracket"></i>Logout
-                                    <span class="bot-line"></span>
+                                    <i class="fa-solid fa-power-off"></i>
+                                    Logout
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="header__tool">
-                        <div class="header-button-item has-noti js-item-menu">
-                            <i class="zmdi zmdi-notifications"></i>
-                            <div class="notifi-dropdown notifi-dropdown--no-bor js-dropdown">
-                                <div class="notifi__title">
-                                    <p>You have 3 Notifications</p>
-                                </div>
-                                <div class="notifi__item">
-                                    <div class="bg-c1 img-cir img-40">
-                                        <i class="zmdi zmdi-email-open"></i>
-                                    </div>
-                                    <div class="content">
-                                        <p>You got a email notification</p>
-                                        <span class="date">April 12, 2018 06:50</span>
-                                    </div>
-                                </div>
-                                <div class="notifi__item">
-                                    <div class="bg-c2 img-cir img-40">
-                                        <i class="zmdi zmdi-account-box"></i>
-                                    </div>
-                                    <div class="content">
-                                        <p>Your account has been blocked</p>
-                                        <span class="date">April 12, 2018 06:50</span>
-                                    </div>
-                                </div>
-                                <div class="notifi__item">
-                                    <div class="bg-c3 img-cir img-40">
-                                        <i class="zmdi zmdi-file-text"></i>
-                                    </div>
-                                    <div class="content">
-                                        <p>You got a new file</p>
-                                        <span class="date">April 12, 2018 06:50</span>
-                                    </div>
-                                </div>
-                                <div class="notifi__footer">
-                                    <a href="#">All notifications</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="header-button-item js-item-menu">
-                            <i class="zmdi zmdi-settings"></i>
-                            <div class="setting-dropdown js-dropdown">
-                                <div class="account-dropdown__body">
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-account"></i>Account</a>
-                                    </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-settings"></i>Setting</a>
-                                    </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                    </div>
-                                </div>
-                                <div class="account-dropdown__body">
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-globe"></i>Language</a>
-                                    </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-pin"></i>Location</a>
-                                    </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-email"></i>Email</a>
-                                    </div>
-                                    <div class="account-dropdown__item">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-notifications"></i>Notifications</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="account-wrap">
-                            <div class="account-item account-item--style2 clearfix js-item-menu">
-                                <div class="image">
-                                    <img class="perfil" src="<?php echo $urlimg.$row['image'];?>" alt="perfil image" />
-                                </div>
-                                <div class="content">
-                                    <a class="js-acc-btn" href="#"><?php echo $row['username'];?></a>
-                                </div>
-                                <div class="account-dropdown js-dropdown">
-                                    <div class="info clearfix">
-                                        <div class="image">
-                                            <img class="perfil" src="<?php echo $urlimg.$row['image'];?>" alt="perfil image" />
-                                        </div>
-                                        <div class="content">
-                                            <h5 class="name">
-                                                <a href="#"><?php echo $row['username']; ?></a>
-                                            </h5>
-                                            <span class="email"><?php echo $row['email']; ?></span>
-                                        </div>
-                                    </div>
-                                    <div class="account-dropdown__body">
-                                        <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-account"></i>Account</a>
-                                        </div>
-                                        <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-settings"></i>Setting</a>
-                                        </div>
-                                        <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                        </div>
-                                    </div>
-                                    <div class="account-dropdown__footer">
-                                        <a href="../../CRUD/logout.php">
-                                            <i class="zmdi zmdi-power"></i>Logout</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
                 </div>
             </div>
-        </header>
+        </div> <!-- End header area -->
         <!-- END HEADER DESKTOP-->
-
-        <!-- HEADER MOBILE-->
-        <header class="header-mobile header-mobile-2 d-block d-lg-none">
-            <div class="header-mobile__bar">
-                <div class="container-fluid">
-                    <div class="header-mobile-inner">
-                        <img class="logo-img" src="../../parte usuario/alt-g/img/titulo alt-g.png" alt="CoolAdmin" />
-                        <button class="hamburger hamburger--slider" type="button">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <nav class="navbar-mobile">
-                <div class="container-fluid">
-                    <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
-                        </li>
-                        <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-                        <li>
-                            <a href="calendar.html">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
-                        </li>
-                        <li>
-                            <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Maps</a>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>UI Elements</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="button.html">Button</a>
-                                </li>
-                                <li>
-                                    <a href="badge.html">Badges</a>
-                                </li>
-                                <li>
-                                    <a href="tab.html">Tabs</a>
-                                </li>
-                                <li>
-                                    <a href="card.html">Cards</a>
-                                </li>
-                                <li>
-                                    <a href="alert.html">Alerts</a>
-                                </li>
-                                <li>
-                                    <a href="progress-bar.html">Progress Bars</a>
-                                </li>
-                                <li>
-                                    <a href="modal.html">Modals</a>
-                                </li>
-                                <li>
-                                    <a href="switch.html">Switchs</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grids</a>
-                                </li>
-                                <li>
-                                    <a href="fontawesome.html">Fontawesome Icon</a>
-                                </li>
-                                <li>
-                                    <a href="typo.html">Typography</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <div class="sub-header-mobile-2 d-block d-lg-none">
-            <div class="header__tool">
-                <div class="header-button-item has-noti js-item-menu">
-                    <i class="zmdi zmdi-notifications"></i>
-                    <div class="notifi-dropdown notifi-dropdown--no-bor js-dropdown">
-                        <div class="notifi__title">
-                            <p>You have 3 Notifications</p>
-                        </div>
-                        <div class="notifi__item">
-                            <div class="bg-c1 img-cir img-40">
-                                <i class="zmdi zmdi-email-open"></i>
-                            </div>
-                            <div class="content">
-                                <p>You got a email notification</p>
-                                <span class="date">April 12, 2018 06:50</span>
-                            </div>
-                        </div>
-                        <div class="notifi__item">
-                            <div class="bg-c2 img-cir img-40">
-                                <i class="zmdi zmdi-account-box"></i>
-                            </div>
-                            <div class="content">
-                                <p>Your account has been blocked</p>
-                                <span class="date">April 12, 2018 06:50</span>
-                            </div>
-                        </div>
-                        <div class="notifi__item">
-                            <div class="bg-c3 img-cir img-40">
-                                <i class="zmdi zmdi-file-text"></i>
-                            </div>
-                            <div class="content">
-                                <p>You got a new file</p>
-                                <span class="date">April 12, 2018 06:50</span>
-                            </div>
-                        </div>
-                        <div class="notifi__footer">
-                            <a href="#">All notifications</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-button-item js-item-menu">
-                    <i class="zmdi zmdi-settings"></i>
-                    <div class="setting-dropdown js-dropdown">
-                        <div class="account-dropdown__body">
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-account"></i>Account</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-settings"></i>Setting</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-money-box"></i>Billing</a>
-                            </div>
-                        </div>
-                        <div class="account-dropdown__body">
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-globe"></i>Language</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-pin"></i>Location</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-email"></i>Email</a>
-                            </div>
-                            <div class="account-dropdown__item">
-                                <a href="#">
-                                    <i class="zmdi zmdi-notifications"></i>Notifications</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="account-wrap">
-                    <div class="account-item account-item--style2 clearfix js-item-menu">
-                        <div class="image">
-                            <img class="perfil" src="<?php echo $urlimg.$row['image'];?>" alt="img perf" />
-                        </div>
-                        <div class="content">
-                            <a class="js-acc-btn" href="#"><?php echo $row['username'];?></a>
-                        </div>
-                        <div class="account-dropdown js-dropdown">
-                            <div class="info clearfix">
-                                <div class="image">
-                                    <img class="perfil" src="<?php echo $urlimg.$row['image'];?>" alt="img perf" />
-                                </div>
-                                <div class="content">
-                                    <h5 class="name">
-                                        <a href="#"><?php echo $row['username'];?></a>
-                                    </h5>
-                                    <span class="email"><?php echo $row['email'];?></span>
-                                </div>
-                            </div>
-                            <div class="account-dropdown__body">
-                                <div class="account-dropdown__item">
-                                    <a href="#">
-                                        <i class="zmdi zmdi-account"></i>Account</a>
-                                </div>
-                                <div class="account-dropdown__item">
-                                    <a href="#">
-                                        <i class="zmdi zmdi-settings"></i>Setting</a>
-                                </div>
-                                <div class="account-dropdown__item">
-                                    <a href="#">
-                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                </div>
-                            </div>
-                            <div class="account-dropdown__footer">
-                                <a href="#">
-                                    <i class="zmdi zmdi-power"></i>Logout</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END HEADER MOBILE -->
 
         <!-- PAGE CONTENT-->
         <div class="page-content--bgf7">
@@ -510,16 +212,8 @@
             <!-- STATISTIC-->
             <section class="statistic statistic2">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-3">
-                            <div class="statistic__item statistic__item--green">
-                                <h2 class="number">10,368</h2>
-                                <span class="desc">members online</span>
-                                <div class="icon">
-                                    <i class="zmdi zmdi-account-o"></i>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row justify-content-center">
+                        
                         <div class="col-md-6 col-lg-3">
                             <div class="statistic__item statistic__item--orange">
                                 <h2 class="number">388,688</h2>
@@ -845,17 +539,47 @@
             <!-- END DATA TABLE-->
 
             <!-- COPYRIGHT-->
-            <section class="p-t-60 p-b-20">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="copyright">
-                                <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+            <div class="footer-top-area">
+        <div class="zigzag-bottom"></div>
+            <div class="container">
+                <div class="footer-row row">
+                    <div class="col-md-3">
+                        <div class="footer-about-us">
+                            <h2>alt-<span>G</span></h2>
+                            <p>Somos uma empresa de venda de jogos dedicada e muito conhecida no mercado, somos compromissado com a qualidade do nosso serviço e com a satisfação do cliente!</p>
+                            <div class="footer-social">
+                                <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                                <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
+                                <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </div> <!-- End footer top area -->
+
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="copyright">
+                       <p>&copy; 2022 Alt-g corporation. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="footer-card-icon">
+                        <i class="fa fa-cc-discover"></i>
+                        <i class="fa fa-cc-mastercard"></i>
+                        <i class="fa fa-cc-paypal"></i>
+                        <i class="fa fa-cc-visa"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
             <!-- END COPYRIGHT-->
         </div>
 

@@ -102,18 +102,6 @@
                                 <span class="bot-line"></span>
                             </a>
                         </li>
-                        <li>
-                            <a href="edit_account.php">
-                                <i class="fa-solid fa-file-invoice"></i>Conta
-                                <span class="bot-line"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../php/logout.php">
-                                <i class="fa-solid fa-right-from-bracket"></i>Logout
-                                <span class="bot-line"></span>
-                            </a>
-                        </li>
                         
                         <!-- <li><a href="single-product.html"><span class="bot-line"></span>Produto único</a></li>
                         <li><a href="checkout.html"><span class="bot-line"></span>Checkout</a></li>
@@ -125,14 +113,51 @@
             
             
             <div class="header-right">
-                <ul>
-                    <i class="fa-solid fa-bell"></i>
-                    <i class="fa-solid fa-gear"></i>
-                    <img class="img_perf" src="<?php echo $imgurl?>" alt="">
-                </ul>
-            </div>
-            
+                <div class="header-img">
+                    <ul>
+                        <i class="fa-solid fa-bell"></i>
+                        <i class="fa-solid fa-gear"></i>
+                        <img id="img-perf" class="img_perf" src="<?php echo $imgurl?>" alt="">
+                    </ul>
+                </div>
 
+                <div id="header-account" class="header-account">
+                    <div class="div-img">
+                        <img class="img_perf" src="<?php echo $imgurl?>" alt="">
+                        <div class="account-date">
+                            <span><?php echo $row['username'];?></span>
+                            <span><?php echo $row['email'];?></span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="edit_account.php">
+                                <i class="fa-solid fa-user"></i>
+                                Conta
+                            </a>
+                        </li>
+                        <li>
+                            
+                            <a href="#">
+                                <i class="fa-solid fa-gear"></i>
+                                Configurações
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-sack-dollar"></i>
+                                Faturamento
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../php/logout.php">
+                                <i class="fa-solid fa-power-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div> <!-- End header area -->
     

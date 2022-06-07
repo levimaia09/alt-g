@@ -3,6 +3,34 @@
   // USE STRICT
   "use strict";
 
+  try{
+    let btn_mobile = document.getElementById('btn-mobile');
+
+    function toglemenu() {
+        let navbar = document.getElementById('nav-bar');
+        navbar.classList.toggle('active');
+    }
+
+    btn_mobile.addEventListener('click', toglemenu);
+  }
+  catch(error){
+      console.log(error);
+  }
+
+  try{
+    var img = document.getElementById('img-perf');
+
+    function toglemenu2() {
+        let header = document.getElementById('header-account');
+        header.classList.toggle('active');
+    }
+
+    img.addEventListener('click',toglemenu2);
+  }
+  catch(error){
+      console.log(error);
+  }
+
   try {
     //WidgetChart 1
     var ctx = document.getElementById("widgetChart1");

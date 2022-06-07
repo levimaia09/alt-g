@@ -121,7 +121,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #333333;
+    color: #999;
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
@@ -283,7 +283,6 @@ section {
 .page-wrapper {
     overflow: hidden;
     background: #e5e5e5;
-    padding-bottom: 8vh;
 }
 
 @media (max-width: 991px) {
@@ -1150,12 +1149,6 @@ section {
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
-}
-
-.form-control {
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
 }
 
 .card {
@@ -4781,19 +4774,7 @@ section {
 }
 
 /* ----- Footer ----- */
-.copyright {
-    text-align: center;
-    padding: 60px 0;
-    padding-top: 20px;
-}
 
-.copyright p {
-    font-size: 14px;
-    color: #666;
-    line-height: -webkit-calc(24/14);
-    line-height: -moz-calc(24/14);
-    line-height: calc(24/14);
-}
 
 /* ----- Breadcrumb ----- */
 .au-breadcrumb {
@@ -4898,8 +4879,8 @@ section {
 }
 
 .au-breadcrumb2 {
-    padding-top: 48px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 .au-breadcrumb2 .au-breadcrumb-span {

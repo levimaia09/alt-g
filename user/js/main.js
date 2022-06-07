@@ -1,7 +1,8 @@
 jQuery(document).ready(function($){
     
     // menu amburguer, trocar para active ou não
-    {
+
+    try{
         let btn_mobile = document.getElementById('btn-mobile');
 
         function toglemenu() {
@@ -11,12 +12,16 @@ jQuery(document).ready(function($){
 
         btn_mobile.addEventListener('click', toglemenu);
     }
+    catch(error){
+        console.log(error);
+    }
 
     try{
         var img = document.getElementById('img-perf');
 
         function toglemenu2() {
-            
+            let header = document.getElementById('header-account');
+            header.classList.toggle('active');
         }
 
         img.addEventListener('click',toglemenu2);
