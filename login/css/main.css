@@ -514,52 +514,6 @@ iframe {
   color: red;
 }
 
-
-.img_perf_edit{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid gray;
-}
-
-.edit_image:hover{
-  opacity: 0.9;
-}
-
-.max-width{
-  width: 100%;
-}
-
-.image_container{
-  display: grid;
-  justify-content: center;
-  height: 100%;
-  max-height: 110px;
-  
-}
-
-#imgphoto{
-  margin: 0.5rem 0 ;
-  background-color: #eee;
-  border: 3px solid rgb(177, 177, 177);
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  transition: 250ms;
-  object-fit: cover;
-}
-
-#imgphoto:hover{
-  border: 3px solid rgb(212, 212, 212);
-}
-
-#flimage{
-  display: none;
-}
-
-
 @media (max-width: 992px) {
   .alert-validate::before {
     visibility: visible;

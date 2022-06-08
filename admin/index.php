@@ -32,6 +32,7 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="../user/style.css">
+    <link rel="stylesheet" href="../all.css">
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/35355885e0.js" crossorigin="anonymous"></script>
@@ -134,7 +135,7 @@
                         </div>
                         <ul>
                             <li>
-                                <a href="edit_account.php">
+                                <a href="<?php echo $urluser."edit_account.php";?>">
                                     <i class="fa-solid fa-user"></i>
                                     Conta
                                 </a>
@@ -153,7 +154,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="../php/logout.php">
+                                <a href="<?php echo $urlphp."logout.php";?>">
                                     <i class="fa-solid fa-power-off"></i>
                                     Logout
                                 </a>
@@ -334,7 +335,7 @@
             <section class="p-t-20">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 m-b-30">
                             <h3 class="title-5 m-b-35">data table</h3>
                             <div class="table-data__tool">
                                 <div class="table-data__tool-left">
@@ -358,8 +359,10 @@
                                         <i class="zmdi zmdi-filter-list"></i>filters</button>
                                 </div>
                                 <div class="table-data__tool-right">
-                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
+                                    <button id="myBtn" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <i class="zmdi zmdi-plus"></i>adicionar item
+                                    </button>
+
                                     <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                         <select class="js-select2" name="type">
                                             <option selected="selected">Export</option>
@@ -369,6 +372,85 @@
                                         <div class="dropDownSelect2"></div>
                                     </div>
                                 </div>
+
+                                <div id="myModal" class="modal">
+                                        <!-- Modal content -->
+                                            
+                                        <div class="card">
+                                            <div style="text-align: center; text-transform: uppercase;" class="card-header">
+                                                Envie seu <strong>jogo</strong> 
+                                                <span class="close">&times;</span>
+                                            </div>
+                                            <div class="card-body card-block">
+                                                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                                                    <div class="row form-group">
+                                                        <label for="image">
+                                                        </label>
+                                                        <div class="m-b-10 max-width">
+                                                            <div class="image_container">
+                                                                <img src="../images/img/semimagem.png" alt="Selecione uma imagem" id="imgphoto">
+                                                            </div>
+                                                            <input type="file" id="flimage" name="imagem" accept="image/*">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="text-input" class=" form-control-label">Nome:</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="text" id="text-input" name="text-input" placeholder="Nome" class="form-control">
+                                                            <small class="form-text text-muted">Digite aqui o nome do seu jogo:</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="email-input" class=" form-control-label">Preço:</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="email" id="email-input" name="email-input" placeholder="Preço" class="form-control">
+                                                            <small class="help-block form-text">Digite o preço do seu jogo em $US</small>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="textarea-input" class=" form-control-label">Descrição:</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <textarea style="resize: none;" name="textarea-input" id="textarea-input" maxlength="255" rows="9" placeholder="Descrição" class="form-control"></textarea>
+                                                            <small class="help-block form-text">Digite uma breve descrição do seu jogo</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="select" class=" form-control-label">Gênero:</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <select name="select" id="select" class="form-control">
+                                                                <option value="0">Por favor escolha</option>
+                                                                <option value="1">Terror</option>
+                                                                <option value="2">Ação</option>
+                                                                <option value="3">Aventura</option>
+                                                                <option value="3">Puzzle</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Enviar
+                                                </button>
+                                                <button type="reset" class="btn btn-danger btn-sm">
+                                                    <i class="fa fa-ban"></i> Resetar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+
                             </div>
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
@@ -584,6 +666,8 @@
         </div>
 
     </div>
+
+    
 
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>

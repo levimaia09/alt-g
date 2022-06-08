@@ -3,33 +3,80 @@
   // USE STRICT
   "use strict";
 
-  try{
+    // script para deixar o botão hamburguer funcional 
+
     let btn_mobile = document.getElementById('btn-mobile');
 
-    function toglemenu() {
-        let navbar = document.getElementById('nav-bar');
-        navbar.classList.toggle('active');
+    btn_mobile.onclick = () => {
+      let navbar = document.getElementById('nav-bar');
+      navbar.classList.toggle('active');
     }
 
-    btn_mobile.addEventListener('click', toglemenu);
-  }
-  catch(error){
-      console.log(error);
-  }
+    // script para menu da conta aparecer quando clicar na imagem
 
-  try{
-    var img = document.getElementById('img-perf');
+    let img = document.getElementById('img-perf');
 
-    function toglemenu2() {
-        let header = document.getElementById('header-account');
-        header.classList.toggle('active');
+    img.onclick = () => {
+      let header = document.getElementById('header-account');
+      header.classList.toggle('active');
     }
 
-    img.addEventListener('click',toglemenu2);
-  }
-  catch(error){
-      console.log(error);
-  }
+    //upload e preview das fotos
+    
+    let photo = document.getElementById("imgphoto");
+    let file = document.getElementById("flimage");
+
+    photo.addEventListener('click', ()=>{
+        file.click();
+    });
+
+    file.addEventListener('change', (event) => {
+
+        if(file.files.length <= 0){
+            return;
+        }
+
+        let reader = new FileReader();
+
+        reader.onload = () => {
+            photo.src = reader.result;
+        }
+
+        reader.readAsDataURL(file.files[0]);
+    });
+
+    // script para deixar o botão de adicionar jogos funcional 
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    }
+
+
 
   try {
     //WidgetChart 1
