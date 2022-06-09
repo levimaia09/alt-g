@@ -56,7 +56,9 @@
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
+    var reset = document.getElementById("reset-btn");
     // When the user clicks on the button, open the modal
+
     btn.onclick = function() {
       modal.style.display = "block";
       document.body.style.overflow = "hidden";
@@ -64,17 +66,34 @@
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
-      modal.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
+      let a = confirm("Você quer mesmo sair ?");
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
+      let reader = new FileReader();
+
+      if (a == true) {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
-      }
+
+        let inputs = document.querySelectorAll('#name-input, #price-input, #description-input, #genre-input');
+        let img = document.getElementById("imgphoto");
+
+        inputs.forEach(input => {
+          input.value = '';
+          img.src = "../images/img/semimagem.png";
+        });
+
+      } 
     }
+
+    reset.onclick = function () {
+      let img = document.getElementById("imgphoto");
+      input.value = '';
+      img.src = "../images/img/semimagem.png";
+    }
+
+
+    // When the user clicks anywhere outside of the modal, close it
+    
 
 
 

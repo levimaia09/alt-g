@@ -14,6 +14,7 @@
         $e1->old_password = $_POST['oldpassword'];
 
         $e1->imagem = $_FILES['imagem'];
+        $e1->value_img = $_POST['value_img'];
         
         $e1->update();
         

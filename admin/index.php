@@ -382,14 +382,14 @@
                                                 <span class="close">&times;</span>
                                             </div>
                                             <div class="card-body card-block">
-                                                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                                <form action="../php/functions_products.php" method="post" enctype="multipart/form-data" class="form-horizontal">
 
                                                     <div class="row form-group">
                                                         <label for="image">
                                                         </label>
-                                                        <div class="m-b-10 max-width">
+                                                        <div class="m-b-10 max-width max-width-game">
                                                             <div class="image_container">
-                                                                <img src="../images/img/semimagem.png" alt="Selecione uma imagem" id="imgphoto">
+                                                                <img src="../images/img/semimagem.png" alt="Selecione uma imagem" class="imgphoto img-game" id="imgphoto">
                                                             </div>
                                                             <input type="file" id="flimage" name="imagem" accept="image/*">
                                                         </div>
@@ -400,7 +400,7 @@
                                                             <label for="text-input" class=" form-control-label">Nome:</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <input type="text" id="text-input" name="text-input" placeholder="Nome" class="form-control">
+                                                            <input type="text" id="name-input" name="name-input" placeholder="Nome" class="form-control">
                                                             <small class="form-text text-muted">Digite aqui o nome do seu jogo:</small>
                                                         </div>
                                                     </div>
@@ -409,7 +409,7 @@
                                                             <label for="email-input" class=" form-control-label">Preço:</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <input type="email" id="email-input" name="email-input" placeholder="Preço" class="form-control">
+                                                            <input type="email" id="price-input" name="price-input" placeholder="Preço" class="form-control">
                                                             <small class="help-block form-text">Digite o preço do seu jogo em $US</small>
                                                         </div>
                                                     </div>
@@ -419,7 +419,7 @@
                                                             <label for="textarea-input" class=" form-control-label">Descrição:</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <textarea style="resize: none;" name="textarea-input" id="textarea-input" maxlength="255" rows="9" placeholder="Descrição" class="form-control"></textarea>
+                                                            <textarea style="resize: none;" name="description-input" id="description-input" maxlength="255" rows="9" placeholder="Descrição" class="form-control"></textarea>
                                                             <small class="help-block form-text">Digite uma breve descrição do seu jogo</small>
                                                         </div>
                                                     </div>
@@ -428,7 +428,7 @@
                                                             <label for="select" class=" form-control-label">Gênero:</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <select name="select" id="select" class="form-control">
+                                                            <select name="genre-input" id="genre-input" class="form-control">
                                                                 <option value="0">Por favor escolha</option>
                                                                 <option value="1">Terror</option>
                                                                 <option value="2">Ação</option>
@@ -437,15 +437,15 @@
                                                             </select>
                                                         </div>
                                                     </div>
+                                                    <div class="card-footer">
+                                                        <button type="submit" class="btn btn-primary btn-sm" name="submit">
+                                                            <i class="fa fa-dot-circle-o"></i> Enviar
+                                                        </button>
+                                                        <button type="reset" class="btn btn-danger btn-sm" id="reset-btn">
+                                                            <i class="fa fa-ban"></i> Resetar
+                                                        </button>
+                                                    </div>
                                                 </form>
-                                            </div>
-                                            <div class="card-footer">
-                                                <button type="submit" class="btn btn-primary btn-sm">
-                                                    <i class="fa fa-dot-circle-o"></i> Enviar
-                                                </button>
-                                                <button type="reset" class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-ban"></i> Resetar
-                                                </button>
                                             </div>
                                         </div>
                                     

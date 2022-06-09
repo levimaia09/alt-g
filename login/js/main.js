@@ -2,8 +2,13 @@
 (function ($) {
     "use strict";
 
+    // sistema de imagem para edit e register
+
     let photo = document.getElementById("imgphoto");
     let file = document.getElementById("flimage");
+    let reset_btn = document.getElementById("reset_btn");
+    let value_img = document.getElementById("value_img");
+    let reader = new FileReader();
 
     photo.addEventListener('click', ()=>{
         file.click();
@@ -15,13 +20,22 @@
             return;
         }
 
-        let reader = new FileReader();
-
         reader.onload = () => {
             photo.src = reader.result;
+            value_img.value = "no deleted";
         }
 
         reader.readAsDataURL(file.files[0]);
+    });
+
+
+    reset_btn.addEventListener('click', ()=>{
+        let a = confirm("Você quer mesmo retirar sua imagem atual ?");
+
+        if (a == true) {
+            photo.src = "../images/img/semfoto.png";
+            value_img.value = "deleted";
+          } 
     });
     
     /*==================================================================

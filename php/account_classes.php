@@ -19,7 +19,8 @@ class Login {
         $password = mysqli_real_escape_string($mysqli, $this->password);
 
         if($username == "" || $password == "") {
-            $_SESSION['failed'] = "Os campos não podem ser vazios!";
+            $_SESSION['failed'] = "Todos os campos são obrigatórios!";
+            $_SESSION['username'] = "";
             header("Location: ../login/index_login.php");
             exit();
         } 
@@ -100,6 +101,7 @@ class Edit {
     var $password;
     var $old_password;
     var $imagem;
+    var $value_img;
 
     function update(){
 
@@ -174,13 +176,13 @@ class Edit {
                 if(empty($pass_format)){
                     $password = $row['password'];
                 }
-                else {
+                if(!empty($pass_format)){
                     $password = sha1($password);
                 }
 
                 $e2 = new Image;
                 $e2->imagem = $this->imagem;
-                unlink($urlimg.$row['image']);
+                $e2->value_img = $this->value_img;
                 $e2->set_image();
                 $nome_imagem = $e2->img_name_final;
 
@@ -228,29 +230,45 @@ class Edit {
 class Image {
     var $img_name_final;
     var $imagem;
+    var $value_img;
 
     function set_image(){
+
+        include("connection.php");
+        session_start();
+
         $urlimg = "../images/img_perfil/";
 
-        $imagem = $this->imagem;
+        $id = $_SESSION['id'];	
+        $result = mysqli_query($mysqli, "SELECT * FROM login WHERE id='$id' ");
+        $row = mysqli_fetch_assoc($result);
 
-        if($imagem['name'] != ""){
+        $imagem = $this->imagem;
+        $value_img = $this->value_img;
+
+        if($value_img == "initial"){
+            $this->img_name_final = $row['image'];
+        }
+
+        else if($value_img == "deleted"){
+            $nome_imagem = sha1(uniqid("semfoto")).".png";
+
+            $this->img_name_final = $nome_imagem;
+
+            unlink($urlimg.$row['image']);
+            copy("../images/img/semfoto.png",$urlimg.$nome_imagem);
+        }
+
+        else if($value_img != "empty"){
             $extensao = pathinfo($imagem['name'], PATHINFO_EXTENSION);
             $nome_imagem = sha1(uniqid($imagem['name'])).".".$extensao;
             $upload = $urlimg;
 
             $this->img_name_final = $nome_imagem;
-
+            unlink($urlimg.$row['image']);
             move_uploaded_file($imagem['tmp_name'], $upload.$nome_imagem);
         }
-
-        else if($imagem['name'] == ""){
-            $nome_imagem = sha1(uniqid("semfoto")).".png";
-
-            $this->img_name_final = $nome_imagem;
-
-            copy($urlimg."semfoto.png",$urlimg.$nome_imagem);
-        }
+        
     }
 }
 

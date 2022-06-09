@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../all.css">
   </head>
   <body>
 

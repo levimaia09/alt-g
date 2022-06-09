@@ -18,13 +18,14 @@ jQuery(document).ready(function($){
 
     try{
         var img = document.getElementById('img-perf');
+        let header = document.getElementById('header-account');
 
         function toglemenu2() {
-            let header = document.getElementById('header-account');
             header.classList.toggle('active');
         }
 
         img.addEventListener('click',toglemenu2);
+        
     }
     catch(error){
         console.log(error);

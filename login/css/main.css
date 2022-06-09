@@ -514,6 +514,33 @@ iframe {
   color: red;
 }
 
+.reset_box {
+  display: grid;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#reset_btn {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 25px;
+  border: 1px solid black;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#reset_btn:hover{
+  background-color: #000000;
+  color: white;
+}
+
+#reset_btn:focus {
+  
+}
+
 @media (max-width: 992px) {
   .alert-validate::before {
     visibility: visible;

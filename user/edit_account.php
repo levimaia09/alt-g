@@ -27,6 +27,7 @@
 
 	<link rel="stylesheet" type="text/css" href="../login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="../login/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../all.css">
 <!--===============================================================================================-->
 </head>
 
@@ -80,9 +81,11 @@ $imgurl = "../images/img_perfil/";
 					</label>
 					<div class="m-b-10 max-width">
 						<div class="image_container">
-							<img src="<?php echo $imgurl.$row['image'];?>" alt="Selecione uma imagem" id="imgphoto">
+							<img src="<?php echo $imgurl.$row['image'];?>" alt="Selecione uma imagem" class="imgphoto" id="imgphoto">
 						</div>
-						<input type="file" id="flimage" name="imagem" accept="image/*" value="<?php echo $imgurl.$row['image'];?>" >
+						<input type="file" id="flimage" name="imagem" accept="image/*" >
+						<input type="hidden" id="value_img" name="value_img" value="initial">
+						<div class="reset_box"> <div id="reset_btn">Reset</div> </div>
 					</div>
 
 					<label for="email" class="txt1 p-b-6">
