@@ -21,33 +21,7 @@
       header.classList.toggle('active');
     }
 
-    //upload e preview das fotos
-    
-    let photo = document.getElementById("imgphoto");
-    let file = document.getElementById("flimage");
-
-    photo.addEventListener('click', ()=>{
-        file.click();
-    });
-
-    file.addEventListener('change', (event) => {
-
-        if(file.files.length <= 0){
-            return;
-        }
-
-        let reader = new FileReader();
-
-        reader.onload = () => {
-            photo.src = reader.result;
-        }
-
-        reader.readAsDataURL(file.files[0]);
-    });
-
-    // script para deixar o botão de adicionar jogos funcional 
-
-    // Get the modal
+    // script que deixa o modal funcionando
     var modal = document.getElementById("myModal");
 
     // Get the button that opens the modal
@@ -64,39 +38,60 @@
       document.body.style.overflow = "hidden";
     }
 
-    // When the user clicks on <span> (x), close the modal
+    //upload e preview das fotos
+    
+    let photo = document.getElementById("imgphoto");
+    let file = document.getElementById("flimage");
+    let inputs = document.querySelectorAll('#name-input, #price-input, #description-input, #genre-input');
+    let img_product = document.getElementById("imgphoto");
+    let value_img = document.getElementById("value_img_product");
+
+    photo.addEventListener('click', ()=>{
+        file.click();
+    });
+
+    file.addEventListener('change', (event) => {
+
+        if(file.files.length <= 0){
+            return;
+        }
+
+        let reader = new FileReader();
+
+        reader.onload = () => {
+            photo.src = reader.result;
+            value_img_product.value = "changed";
+        }
+
+        reader.readAsDataURL(file.files[0]);
+    });
+
     span.onclick = function() {
       let a = confirm("Você quer mesmo sair ?");
-
-      let reader = new FileReader();
 
       if (a == true) {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
 
-        let inputs = document.querySelectorAll('#name-input, #price-input, #description-input, #genre-input');
-        let img = document.getElementById("imgphoto");
-
         inputs.forEach(input => {
           input.value = '';
-          img.src = "../images/img/semimagem.png";
+          img_product.src = "../images/img/semimagem.png";
+          value_img_product.value = "no changed";
         });
 
       } 
     }
 
     reset.onclick = function () {
-      let img = document.getElementById("imgphoto");
-      input.value = '';
-      img.src = "../images/img/semimagem.png";
+
+      inputs.forEach(input => {
+        input.value = '';
+        img_product.src = "../images/img/semimagem.png";
+        value_img_product.value = "no changed";
+      });
     }
 
-
-    // When the user clicks anywhere outside of the modal, close it
     
-
-
-
   try {
     //WidgetChart 1
     var ctx = document.getElementById("widgetChart1");

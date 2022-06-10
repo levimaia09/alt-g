@@ -6,6 +6,7 @@ class Login {
     var $email;
     var $password;
     var $imagem;
+    var $url_img;
 
     function log_in(){
 
@@ -17,6 +18,7 @@ class Login {
 
         $username = mysqli_real_escape_string($mysqli, $this->username);
         $password = mysqli_real_escape_string($mysqli, $this->password);
+        $url_img = $this->url_img;
 
         if($username == "" || $password == "") {
             $_SESSION['failed'] = "Todos os campos são obrigatórios!";
@@ -102,6 +104,7 @@ class Edit {
     var $old_password;
     var $imagem;
     var $value_img;
+    var $url_img;
 
     function update(){
 
@@ -118,7 +121,7 @@ class Edit {
         $old_password = sha1($this->old_password);
         $pass_in_db = $row['password'];
         $pass_format = str_replace(" ","",$password);
-        $urlimg = "../images/img_perfil/";
+        $urlimg = $this->url_img;
 
         
 
@@ -183,6 +186,7 @@ class Edit {
                 $e2 = new Image;
                 $e2->imagem = $this->imagem;
                 $e2->value_img = $this->value_img;
+                unlink($urlimg.$row['image']);
                 $e2->set_image();
                 $nome_imagem = $e2->img_name_final;
 
@@ -231,13 +235,13 @@ class Image {
     var $img_name_final;
     var $imagem;
     var $value_img;
+    var $url_img;
 
     function set_image(){
 
         include("connection.php");
-        session_start();
 
-        $urlimg = "../images/img_perfil/";
+        $urlimg = $this->url_img;
 
         $id = $_SESSION['id'];	
         $result = mysqli_query($mysqli, "SELECT * FROM login WHERE id='$id' ");
@@ -255,7 +259,6 @@ class Image {
 
             $this->img_name_final = $nome_imagem;
 
-            unlink($urlimg.$row['image']);
             copy("../images/img/semfoto.png",$urlimg.$nome_imagem);
         }
 
@@ -265,7 +268,7 @@ class Image {
             $upload = $urlimg;
 
             $this->img_name_final = $nome_imagem;
-            unlink($urlimg.$row['image']);
+
             move_uploaded_file($imagem['tmp_name'], $upload.$nome_imagem);
         }
         

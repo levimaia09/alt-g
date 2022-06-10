@@ -15,6 +15,7 @@
 
         $e1->imagem = $_FILES['imagem'];
         $e1->value_img = $_POST['value_img'];
+        $e1->url_img = "../images/img_perfil/";
         
         $e1->update();
         
@@ -37,6 +38,7 @@
     else if(isset($_POST['submit-register'])){
         $l1 =  new Login;
 
+        $l1->url_img = "../images/img_perfil/";
         $l1->imagem = $_FILES['imagem'];
 
         $l1->email = $_POST['email'];

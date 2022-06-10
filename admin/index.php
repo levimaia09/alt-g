@@ -382,7 +382,27 @@
                                                 <span class="close">&times;</span>
                                             </div>
                                             <div class="card-body card-block">
-                                                <form action="../php/functions_products.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                                <form action="../php/functions_products.php" method="post" enctype="multipart/form-data" class="form-horizontal">   
+                                                    
+                                                    <?php
+
+                                                        if(isset($_SESSION['failed'])){
+                                                            $name = $_SESSION['name'];
+                                                            $price = $_SESSION['price'];
+                                                            $description = $_SESSION['description'];
+                                                            ?>
+                                                                <span class="alert login100-form-title p-b-10 m-b-10"><?php echo $_SESSION['failed'];?></span>
+                                                                <br>
+                                                            <?php
+                                                        }
+                                                        else{
+                                                            $name= "";
+                                                            $price = "";
+                                                            $description = "";
+                                                        }
+                                                        unset($_SESSION['failed'], $_SESSION['name'], $_SESSION['price'], $_SESSION['description'])
+
+                                                    ?>
 
                                                     <div class="row form-group">
                                                         <label for="image">
@@ -391,7 +411,8 @@
                                                             <div class="image_container">
                                                                 <img src="../images/img/semimagem.png" alt="Selecione uma imagem" class="imgphoto img-game" id="imgphoto">
                                                             </div>
-                                                            <input type="file" id="flimage" name="imagem" accept="image/*">
+                                                            <input type="file" id="flimage" name="image-input" accept="image/*">
+                                                            <input type="hidden" name="value_img_product" id="value_img_product" value="no changed">
                                                         </div>
                                                     </div>
                                                     
@@ -400,7 +421,7 @@
                                                             <label for="text-input" class=" form-control-label">Nome:</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <input type="text" id="name-input" name="name-input" placeholder="Nome" class="form-control">
+                                                            <input type="text" id="name-input" name="name-input" placeholder="Nome" class="form-control" value="<?php echo $name;?>">
                                                             <small class="form-text text-muted">Digite aqui o nome do seu jogo:</small>
                                                         </div>
                                                     </div>
@@ -409,7 +430,7 @@
                                                             <label for="email-input" class=" form-control-label">Preço:</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <input type="email" id="price-input" name="price-input" placeholder="Preço" class="form-control">
+                                                            <input type="text" id="price-input" name="price-input" placeholder="Preço" class="form-control" value="<?php echo $price;?>">
                                                             <small class="help-block form-text">Digite o preço do seu jogo em $US</small>
                                                         </div>
                                                     </div>
@@ -419,7 +440,7 @@
                                                             <label for="textarea-input" class=" form-control-label">Descrição:</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <textarea style="resize: none;" name="description-input" id="description-input" maxlength="255" rows="9" placeholder="Descrição" class="form-control"></textarea>
+                                                            <textarea style="resize: none;" name="description-input" id="description-input" maxlength="255" rows="9" placeholder="Descrição" class="form-control" value="<?php echo $description;?>"></textarea>
                                                             <small class="help-block form-text">Digite uma breve descrição do seu jogo</small>
                                                         </div>
                                                     </div>
@@ -428,17 +449,17 @@
                                                             <label for="select" class=" form-control-label">Gênero:</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <select name="genre-input" id="genre-input" class="form-control">
+                                                            <select id="genre-input" class="form-control" name="genre-input" >
                                                                 <option value="0">Por favor escolha</option>
-                                                                <option value="1">Terror</option>
-                                                                <option value="2">Ação</option>
-                                                                <option value="3">Aventura</option>
-                                                                <option value="3">Puzzle</option>
+                                                                <option value="terror">Terror</option>
+                                                                <option value="acao">Ação</option>
+                                                                <option value="aventura">Aventura</option>
+                                                                <option value="puzzle">Puzzle</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="card-footer">
-                                                        <button type="submit" class="btn btn-primary btn-sm" name="submit">
+                                                        <button type="submit" class="btn btn-primary btn-sm" name="submit-insert">
                                                             <i class="fa fa-dot-circle-o"></i> Enviar
                                                         </button>
                                                         <button type="reset" class="btn btn-danger btn-sm" id="reset-btn">
