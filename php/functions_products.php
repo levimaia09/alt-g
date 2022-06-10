@@ -14,7 +14,7 @@
         $e1->name = $_POST['name-input'];
         $e1->image = $_FILES['image-input'];
         $e1->price = $_POST['price-input'];
-        $e1->date = date('d-m-y h:i:s');
+        $e1->date = date('d-m-y h:i');
         $e1->genre = $_POST['genre-input'];
         $e1->description = $_POST['description-input'];
         $e1->url_img = "../images/img_product/";

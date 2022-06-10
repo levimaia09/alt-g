@@ -59,7 +59,11 @@
         $result = mysqli_query($mysqli, "SELECT * FROM login WHERE id=$id ");
         $row = mysqli_fetch_assoc($result);
         $urlimg = "../images/img_perfil/"; 
+        $urlimg_product = "../images/img_products/"; 
         $imgurl = "../images/img_perfil/".$row['image'];
+
+        $result_products = mysqli_query($mysqli, "SELECT * FROM products WHERE id='$id' ");
+        $row_products = mysqli_fetch_assoc($result_products);
 
     ?>
 
@@ -430,7 +434,7 @@
                                                             <label for="email-input" class=" form-control-label">Preço:</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <input type="text" id="price-input" name="price-input" placeholder="Preço" class="form-control" value="<?php echo $price;?>">
+                                                            <input type="number" id="price-input" name="price-input" placeholder="Preço" class="form-control" value="<?php echo $price;?>">
                                                             <small class="help-block form-text">Digite o preço do seu jogo em $US</small>
                                                         </div>
                                                     </div>
@@ -477,162 +481,49 @@
                                 <table class="table table-data2">
                                     <thead>
                                         <tr>
-                                            <th>
-                                                <label class="au-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="au-checkmark"></span>
-                                                </label>
-                                            </th>
-                                            <th>name</th>
-                                            <th>email</th>
-                                            <th>description</th>
-                                            <th>date</th>
-                                            <th>status</th>
-                                            <th>price</th>
+                                            <th>nome</th>
+                                            <th>preço</th>
+                                            <th>data</th>
+                                            <th>genero</th>
+                                            <th>descrição</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php 
+                                        $i = 0;
+                                        $result_product = mysqli_query($mysqli, "SELECT * FROM products WHERE id_login=58 ");
+                                        while($row_products = mysqli_fetch_assoc($result_product)){
+                                        
+                                    ?>
                                         <tr class="tr-shadow">
                                             <td>
-                                                <label class="au-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="au-checkmark"></span>
-                                                </label>
+                                                <span class="block-email"><?php echo $row_products['name'];?> </span>
                                             </td>
-                                            <td>Lori Lynch</td>
+                                            <td class="desc"><?php echo $row_products['price']." R$";?> </td>
+                                            <td><?php echo $row_products['date'];?></td>
                                             <td>
-                                                <span class="block-email">lori@example.com</span>
+                                                <span class="desc"><?php echo $row_products['description'];?></span>
                                             </td>
-                                            <td class="desc">Samsung S8 Black</td>
-                                            <td>2018-09-27 02:12</td>
-                                            <td>
-                                                <span class="status--process">Processed</span>
-                                            </td>
-                                            <td>$679.00</td>
                                             <td>
                                                 <div class="table-data-feature">
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                        <i class="zmdi zmdi-mail-send"></i>
-                                                    </button>
+                                                    
                                                     <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="zmdi zmdi-edit"></i>
                                                     </button>
                                                     <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                        <i class="zmdi zmdi-more"></i>
-                                                    </button>
+                                                    
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr class="spacer"></tr>
-                                        <tr class="tr-shadow">
-                                            <td>
-                                                <label class="au-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="au-checkmark"></span>
-                                                </label>
-                                            </td>
-                                            <td>Lori Lynch</td>
-                                            <td>
-                                                <span class="block-email">john@example.com</span>
-                                            </td>
-                                            <td class="desc">iPhone X 64Gb Grey</td>
-                                            <td>2018-09-29 05:57</td>
-                                            <td>
-                                                <span class="status--process">Processed</span>
-                                            </td>
-                                            <td>$999.00</td>
-                                            <td>
-                                                <div class="table-data-feature">
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                        <i class="zmdi zmdi-mail-send"></i>
-                                                    </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                        <i class="zmdi zmdi-edit"></i>
-                                                    </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                        <i class="zmdi zmdi-delete"></i>
-                                                    </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                        <i class="zmdi zmdi-more"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="spacer"></tr>
-                                        <tr class="tr-shadow">
-                                            <td>
-                                                <label class="au-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="au-checkmark"></span>
-                                                </label>
-                                            </td>
-                                            <td>Lori Lynch</td>
-                                            <td>
-                                                <span class="block-email">lyn@example.com</span>
-                                            </td>
-                                            <td class="desc">iPhone X 256Gb Black</td>
-                                            <td>2018-09-25 19:03</td>
-                                            <td>
-                                                <span class="status--denied">Denied</span>
-                                            </td>
-                                            <td>$1199.00</td>
-                                            <td>
-                                                <div class="table-data-feature">
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                        <i class="zmdi zmdi-mail-send"></i>
-                                                    </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                        <i class="zmdi zmdi-edit"></i>
-                                                    </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                        <i class="zmdi zmdi-delete"></i>
-                                                    </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                        <i class="zmdi zmdi-more"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="spacer"></tr>
-                                        <tr class="tr-shadow">
-                                            <td>
-                                                <label class="au-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="au-checkmark"></span>
-                                                </label>
-                                            </td>
-                                            <td>Lori Lynch</td>
-                                            <td>
-                                                <span class="block-email">doe@example.com</span>
-                                            </td>
-                                            <td class="desc">Camera C430W 4k</td>
-                                            <td>2018-09-24 19:10</td>
-                                            <td>
-                                                <span class="status--process">Processed</span>
-                                            </td>
-                                            <td>$699.00</td>
-                                            <td>
-                                                <div class="table-data-feature">
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                        <i class="zmdi zmdi-mail-send"></i>
-                                                    </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                        <i class="zmdi zmdi-edit"></i>
-                                                    </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                        <i class="zmdi zmdi-delete"></i>
-                                                    </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                        <i class="zmdi zmdi-more"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
+
                                     </tbody>
+                                    <?php 
+                                        }
+                                    ?>
                                 </table>
                             </div>
                         </div>
