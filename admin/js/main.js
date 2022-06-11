@@ -93,12 +93,35 @@
 
     // função de editar e deletar 
 
-    let edit = document.getElementById('btn-edit');
+    // const edit = document.getElementsByClassName('btn-edit');
 
-    edit.onclick = () => {
-      modal.style.display = "block";
-      document.body.style.overflow = "hidden";
-    }
+    // for (var i=0; i < edit.length; i++) {
+    //     edit[i].onclick = function(){
+    //         modal.style.display = "block";
+    //         document.body.style.overflow = "hidden";
+
+    //         const id_product_value = edit.getAttribute('id');
+    //         const name_product_value = edit.getAttribute('name');
+    //         const price_product_value = edit.getAttribute('price');
+    //         const description_product_value = edit.getAttribute('description');
+    //         const genre_product_value = edit.getAttribute('genre');
+
+    //         let id_product = document.getElementById('id_product-input');
+    //         let name = document.getElementById('name-input');
+    //         let price = document.getElementById('price-input');
+    //         let description = document.getElementById('description-input');
+    //         let genre = document.getElementById('genre-input');
+
+    //         id_product.value = id_product_value;
+    //         name.value = name_product_value;
+    //         price.value = price_product_value;
+    //         description.value = description_product_value;
+    //         genre.value = genre_product_value;
+    //     }
+    // };
+
+    
+
 
     
   try {
@@ -1743,13 +1766,7 @@
   // USE STRICT
   "use strict";
 
-  try {
-    
-    $('[data-toggle="tooltip"]').tooltip();
-
-  } catch (error) {
-    console.log(error);
-  }
+ 
 
   // Chatbox
   try {

@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -377,7 +377,70 @@
                                     </div>
                                 </div>
 
-                                <div id="myModal" class="modal">
+
+                            </div>
+                            <div class="table-responsive table-responsive-data2">
+                                <table class="table table-data2">
+                                    <thead>
+                                        <tr>
+                                            <th>nome</th>
+                                            <th>preço</th>
+                                            <th>data</th>
+                                            <th>genero</th>
+                                            <th>descrição</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <?php 
+                                        $result_product = mysqli_query($mysqli, "SELECT * FROM products WHERE id_login='$id' ");
+                                        while($row_products = mysqli_fetch_assoc($result_product)){;
+                                        $id_product = $row_products['id'];
+                                        $name_product = $row_products['name'];
+                                        $img_product = $row_products['image'];
+                                        $price_product = $row_products['price'];
+                                        $date_product = $row_products['date'];
+                                        $genre_product = $row_products['genre'];
+                                        $description_product = $row_products['description'];
+                                    ?>
+                                        <tbody>
+                                        <tr class="tr-shadow">
+                                            <td>
+                                                <span class="block-email"><?php echo $name_product;?> </span>
+                                            </td>
+                                            <td class="desc">
+                                                <?php echo $price_product." R$";?> 
+                                            </td>
+                                            <td>
+                                                <?php echo $date_product;?>
+                                            </td>
+                                            <td class="desc">
+                                                <?php echo $genre_product;?>
+                                            </td>
+                                            <td class="desc" style="max-width: 100px; max-height: 50px; ">
+                                                <?php echo $description_product;?>
+                                            </td>
+
+                                            <td>
+                                                <div class="table-data-feature">
+                                                    
+                                                    <button href="#" class="item btn-edit" data-toggle="tooltip" data-placement="top" onclick="toEdit('<?php echo $id_product;?>', '<?php echo $name_product;?>', '<?php echo $img_product;?>', '<?php echo $price_product;?>', '<?php echo $genre_product;?>', '<?php echo $description_product;?>')">
+                                                        <i class="zmdi zmdi-edit"></i>
+                                                    </button>
+                                                    <button class="item btn-delete" data-toggle="tooltip" data-placement="top">
+                                                        <i class="zmdi zmdi-delete"></i>
+                                                    </button>
+                                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="spacer"></tr>
+                                    </tbody>
+                                    <?php 
+                                        }
+                                    ?>
+                                </table>
+                            </div>
+                            <div id="myModal" class="modal">
                                         <!-- Modal content -->
                                             
                                         <div class="card">
@@ -408,6 +471,7 @@
 
                                                     ?>
 
+                                                    <input type="hidden" id="id_product-input" name="id_product-input" value="">
                                                     <div class="row form-group">
                                                         <label for="image">
                                                         </label>
@@ -466,7 +530,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="card-footer">
-                                                        <button type="submit" class="btn btn-primary btn-sm" name="submit-insert">
+                                                        <button type="submit" class="btn btn-primary btn-sm" id="btn-form" name="submit-insert">
                                                             <i class="fa fa-dot-circle-o"></i> Enviar
                                                         </button>
                                                         <button type="reset" class="btn btn-danger btn-sm" id="reset-btn">
@@ -478,61 +542,6 @@
                                         </div>
                                     
                                 </div>
-
-                            </div>
-                            <div class="table-responsive table-responsive-data2">
-                                <table class="table table-data2">
-                                    <thead>
-                                        <tr>
-                                            <th>nome</th>
-                                            <th>preço</th>
-                                            <th>data</th>
-                                            <th>genero</th>
-                                            <th>descrição</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <?php 
-                                        $result_product = mysqli_query($mysqli, "SELECT * FROM products WHERE id_login='$id' ");
-                                        while($row_products = mysqli_fetch_assoc($result_product)){
-                                    ?>
-                                        <tbody>
-                                        <tr class="tr-shadow">
-                                            <td>
-                                                <span class="block-email"><?php echo $row_products['name'];?> </span>
-                                            </td>
-                                            <td class="desc">
-                                                <?php echo $row_products['price']." R$";?> 
-                                            </td>
-                                            <td>
-                                                <?php echo $row_products['date'];?>
-                                            </td>
-                                            <td class="desc">
-                                                <?php echo $row_products['genre'];?>
-                                            </td>
-                                            <td class="desc" style="max-width: 100px; max-height: 50px; ">
-                                                <?php echo $row_products['description'];?>
-                                            </td>
-                                            <td>
-                                                <div class="table-data-feature">
-                                                    
-                                                    <button class="item" data-toggle="tooltip" id="btn-edit" data-placement="top">
-                                                        <i class="zmdi zmdi-edit"></i>
-                                                    </button>
-                                                    <button class="item" data-toggle="tooltip" id="btn-delete" data-placement="top">
-                                                        <i class="zmdi zmdi-delete"></i>
-                                                    </button>
-                                                    
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="spacer"></tr>
-                                    </tbody>
-                                    <?php 
-                                        }
-                                    ?>
-                                </table>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -591,8 +600,8 @@
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <!-- Vendor JS       -->
     <script src="vendor/slick/slick.min.js">
     </script>
@@ -608,6 +617,38 @@
     <script src="vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="vendor/select2/select2.min.js">
     </script>
+
+    <script type="text/javascript">
+        function toEdit(id_product,name,img_product,price,genre,description){
+            
+            const edit = document.getElementsByClassName('btn-edit');
+            var modal = document.getElementById("myModal");
+      
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+      
+            var span = document.getElementsByClassName("close")[0];
+      
+            var reset = document.getElementById("reset-btn");
+      
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+
+            let btn_form = document.getElementById('btn-form');
+
+            btn_form.textContent= "update";
+      
+            let imgphoto_product = document.getElementById('imgphoto').src = "../images/img_product/" + img_product;
+            let id_product_input = document.getElementById('id_product-input').value = id_product;
+            let name_input = document.getElementById('name-input').value = name;
+            let price_input = document.getElementById('price-input').value = price;
+            let genre_input = document.getElementById('genre-input').value = genre;
+            let description_input = document.getElementById('description-input').value = description;
+
+
+            
+        }
+    </script>                                                   
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
