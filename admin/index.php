@@ -434,7 +434,7 @@
                                                             <label for="email-input" class=" form-control-label">Preço:</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <input type="number" id="price-input" name="price-input" placeholder="Preço" class="form-control" value="<?php echo $price;?>">
+                                                            <input type="number" step="0.01" id="price-input" name="price-input" placeholder="Preço" class="form-control" value="<?php echo $price;?>">
                                                             <small class="help-block form-text">Digite o preço do seu jogo em $US</small>
                                                         </div>
                                                     </div>
@@ -456,9 +456,12 @@
                                                             <select id="genre-input" class="form-control" name="genre-input" >
                                                                 <option value="0">Por favor escolha</option>
                                                                 <option value="terror">Terror</option>
-                                                                <option value="acao">Ação</option>
+                                                                <option value="ação">Ação</option>
                                                                 <option value="aventura">Aventura</option>
                                                                 <option value="puzzle">Puzzle</option>
+                                                                <option value="indie">Indie</option>
+                                                                <option value="Plataforma">Plataforma</option>
+                                                                <option value="RPG">RPG</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -489,29 +492,34 @@
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
                                     <?php 
-                                        $i = 0;
-                                        $result_product = mysqli_query($mysqli, "SELECT * FROM products WHERE id_login=58 ");
+                                        $result_product = mysqli_query($mysqli, "SELECT * FROM products WHERE id_login='$id' ");
                                         while($row_products = mysqli_fetch_assoc($result_product)){
-                                        
                                     ?>
+                                        <tbody>
                                         <tr class="tr-shadow">
                                             <td>
                                                 <span class="block-email"><?php echo $row_products['name'];?> </span>
                                             </td>
-                                            <td class="desc"><?php echo $row_products['price']." R$";?> </td>
-                                            <td><?php echo $row_products['date'];?></td>
+                                            <td class="desc">
+                                                <?php echo $row_products['price']." R$";?> 
+                                            </td>
                                             <td>
-                                                <span class="desc"><?php echo $row_products['description'];?></span>
+                                                <?php echo $row_products['date'];?>
+                                            </td>
+                                            <td class="desc">
+                                                <?php echo $row_products['genre'];?>
+                                            </td>
+                                            <td class="desc" style="max-width: 100px; max-height: 50px; ">
+                                                <?php echo $row_products['description'];?>
                                             </td>
                                             <td>
                                                 <div class="table-data-feature">
                                                     
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <button class="item" data-toggle="tooltip" id="btn-edit" data-placement="top">
                                                         <i class="zmdi zmdi-edit"></i>
                                                     </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <button class="item" data-toggle="tooltip" id="btn-delete" data-placement="top">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </button>
                                                     
@@ -519,7 +527,6 @@
                                             </td>
                                         </tr>
                                         <tr class="spacer"></tr>
-
                                     </tbody>
                                     <?php 
                                         }

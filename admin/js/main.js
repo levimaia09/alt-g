@@ -91,6 +91,15 @@
       });
     }
 
+    // função de editar e deletar 
+
+    let edit = document.getElementById('btn-edit');
+
+    edit.onclick = () => {
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+
     
   try {
     //WidgetChart 1
