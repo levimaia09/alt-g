@@ -24,6 +24,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="../all.css">
 <!--===============================================================================================-->
 </head>
 
@@ -32,6 +33,8 @@
     include("../php/connection.php");
 	session_start();
 
+	// $id = $_SESSION['id'];
+	// $result = mysqli_query($mysqli, "SELECT * FROM login WHERE id='$id'");
 	$urlimg = "../images/img_perfil/";
 	?>
 	<div class="limiter">
@@ -64,9 +67,11 @@
 					</label>
 					<div class="m-b-10 max-width">
 						<div class="image_container">
-							<img src="<?php echo $urlimg."semfoto.png";?>" alt="Selecione uma imagem" id="imgphoto">
+							<img src="../images/img/semfoto.png" alt="Selecione uma imagem" class="imgphoto" id="imgphoto">
+							<div class="reset_box"> <div id="reset_btn">Reset</div> </div>
 						</div>
-						<input type="file" id="flimage" name="imagem" accept="image/*">
+						<input type="file" id="flimage" name="imagem" accept="image/*" >
+						<input type="hidden" id="value_img" name="value_img" value="initial">
 					</div>
 
 					<span class="txt1 p-b-6">

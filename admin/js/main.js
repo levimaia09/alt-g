@@ -1,129 +1,107 @@
+function openClose(modal_area){
+  let modalArea = document.getElementById(modal_area);
+  modalArea.classList.toggle('active');
+}
+
+function toEdit(id_product,name,img_product,price,genre,description){
+  //abrindo o modal e tirando o overflow do documento
+  openClose('myModalEdit');
+  document.body.style.overflow = "hidden";
+  
+  //passando os valores pro form
+  let imgphoto_product = document.getElementById('imgphoto-edit').src = "../images/img_product/" + img_product;
+  let id_product_input = document.getElementById('id-product-input-edit').value = id_product;
+  let name_input = document.getElementById('name-input-edit').value = name;
+  let price_input = document.getElementById('price-input-edit').value = price;
+  let description_input = document.getElementById('description-input-edit').value = description;
+  let genre_input = document.getElementById('genre-input-edit').value = genre;
+}
+
+// script para deixar o botão hamburguer funcional 
+let btn_mobile = document.getElementById('btn-mobile');
+btn_mobile.addEventListener('click', () => { 
+  openClose('nav-bar');
+});
+
+// script para menu da conta aparecer quando clicar na imagem
+let img = document.getElementById('img-perf');
+img.addEventListener('click', () => {
+  openClose('header-account');
+});
+
+//upload e preview das fotos:
+let photo = document.getElementById("imgphoto");
+let file = document.getElementById("flimage");
+let img_product = document.getElementById("imgphoto");
+let value_img = document.getElementById("value_img_product");
+
+photo.addEventListener('click', ()=>{
+    file.click();
+});
+
+file.addEventListener('change', (event) => {
+
+    if(file.files.length <= 0){
+        return;
+    }
+
+    let reader = new FileReader();
+
+    reader.onload = () => {
+        photo.src = reader.result;
+        value_img_product.value = "changed";
+    }
+
+    reader.readAsDataURL(file.files[0]);
+});
+
+// script que deixa o modal funcionando
+let btn = document.getElementById("myBtn");
+
+btn.addEventListener('click', () => {
+  openClose('myModal');
+  document.body.style.overflow = "hidden";
+});
+
+//script para fechar o modal:
+let close_button = document.getElementsByClassName("close")[0];
+let reset_btn = document.getElementById("reset-btn");
+//inputs para resetar o valor
+let inputs = document.querySelectorAll('#name-input, #price-input, #description-input, #genre-input');
+
+//botão para fechar o form
+close_button.addEventListener('click', () => {
+  let a = confirm("Você quer mesmo sair ?");
+
+  if (a == true) {
+    openClose('myModal');
+    document.body.style.overflow = "auto";
+
+    inputs.forEach(input => {
+      input.value = '';
+      img_product.src = "../images/img/semimagem.png";
+      value_img_product.value = "no changed";
+    });
+  }
+});
+
+//botão para resetar os valores dos inputs do form
+reset_btn.addEventListener('click', () => {
+  let a = confirm("Você quer mesmo sair ?");
+
+  if (a == true) {
+    inputs.forEach(input => {
+      input.value = '';
+      img_product.src = "../images/img/semimagem.png";
+      value_img_product.value = "no changed";
+    });
+  }
+});
 
 (function ($) {
   // USE STRICT
   "use strict";
 
-    // script para deixar o botão hamburguer funcional 
-
-    let btn_mobile = document.getElementById('btn-mobile');
-
-    btn_mobile.onclick = () => {
-      let navbar = document.getElementById('nav-bar');
-      navbar.classList.toggle('active');
-    }
-
-    // script para menu da conta aparecer quando clicar na imagem
-
-    let img = document.getElementById('img-perf');
-
-    img.onclick = () => {
-      let header = document.getElementById('header-account');
-      header.classList.toggle('active');
-    }
-
-    // script que deixa o modal funcionando
-    var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    var reset = document.getElementById("reset-btn");
-    // When the user clicks on the button, open the modal
-
-    btn.onclick = function() {
-      modal.style.display = "block";
-      document.body.style.overflow = "hidden";
-    }
-
-    //upload e preview das fotos
-    
-    let photo = document.getElementById("imgphoto");
-    let file = document.getElementById("flimage");
-    let inputs = document.querySelectorAll('#name-input, #price-input, #description-input, #genre-input');
-    let img_product = document.getElementById("imgphoto");
-    let value_img = document.getElementById("value_img_product");
-
-    photo.addEventListener('click', ()=>{
-        file.click();
-    });
-
-    file.addEventListener('change', (event) => {
-
-        if(file.files.length <= 0){
-            return;
-        }
-
-        let reader = new FileReader();
-
-        reader.onload = () => {
-            photo.src = reader.result;
-            value_img_product.value = "changed";
-        }
-
-        reader.readAsDataURL(file.files[0]);
-    });
-
-    span.onclick = function() {
-      let a = confirm("Você quer mesmo sair ?");
-
-      if (a == true) {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-
-        inputs.forEach(input => {
-          input.value = '';
-          img_product.src = "../images/img/semimagem.png";
-          value_img_product.value = "no changed";
-        });
-
-      } 
-    }
-
-    reset.onclick = function () {
-
-      inputs.forEach(input => {
-        input.value = '';
-        img_product.src = "../images/img/semimagem.png";
-        value_img_product.value = "no changed";
-      });
-    }
-
-    // função de editar e deletar 
-
-    // const edit = document.getElementsByClassName('btn-edit');
-
-    // for (var i=0; i < edit.length; i++) {
-    //     edit[i].onclick = function(){
-    //         modal.style.display = "block";
-    //         document.body.style.overflow = "hidden";
-
-    //         const id_product_value = edit.getAttribute('id');
-    //         const name_product_value = edit.getAttribute('name');
-    //         const price_product_value = edit.getAttribute('price');
-    //         const description_product_value = edit.getAttribute('description');
-    //         const genre_product_value = edit.getAttribute('genre');
-
-    //         let id_product = document.getElementById('id_product-input');
-    //         let name = document.getElementById('name-input');
-    //         let price = document.getElementById('price-input');
-    //         let description = document.getElementById('description-input');
-    //         let genre = document.getElementById('genre-input');
-
-    //         id_product.value = id_product_value;
-    //         name.value = name_product_value;
-    //         price.value = price_product_value;
-    //         description.value = description_product_value;
-    //         genre.value = genre_product_value;
-    //     }
-    // };
-
-    
-
-
-    
   try {
     //WidgetChart 1
     var ctx = document.getElementById("widgetChart1");

@@ -22,7 +22,7 @@
 
         reader.onload = () => {
             photo.src = reader.result;
-            value_img.value = "no deleted";
+            value_img.value = "changed";
         }
 
         reader.readAsDataURL(file.files[0]);

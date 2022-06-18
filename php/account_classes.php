@@ -250,19 +250,11 @@ class Image {
         $imagem = $this->imagem;
         $value_img = $this->value_img;
 
-        if($value_img == "initial"){
+        if($value_img == "no changed"){
             $this->img_name_final = $row['image'];
         }
 
-        else if($value_img == "deleted"){
-            $nome_imagem = sha1(uniqid("semfoto")).".png";
-
-            $this->img_name_final = $nome_imagem;
-
-            copy("../images/img/semfoto.png",$urlimg.$nome_imagem);
-        }
-
-        else if($value_img != "empty"){
+        else if($value_img == "changed"){
             $extensao = pathinfo($imagem['name'], PATHINFO_EXTENSION);
             $nome_imagem = sha1(uniqid($imagem['name'])).".".$extensao;
             $upload = $urlimg;
@@ -271,7 +263,52 @@ class Image {
 
             move_uploaded_file($imagem['tmp_name'], $upload.$nome_imagem);
         }
+
+        else if($value_img == "empty"){
+            $nome_imagem = sha1(uniqid("semfoto")).".png";
+
+            $this->img_name_final = $nome_imagem;
+
+            copy("../images/img/semfoto.png",$urlimg.$nome_imagem);
+        }
         
+    }
+
+    function update_image(){
+        include("connection.php");
+
+        $urlimg = $this->url_img;
+
+        $id = $_SESSION['id'];	
+        $result = mysqli_query($mysqli, "SELECT * FROM login WHERE id='$id' ");
+        $row = mysqli_fetch_assoc($result);
+
+        $imagem = $this->imagem;
+        $value_img = $this->value_img;
+
+        if($value_img == "no changed"){
+            $this->img_name_final = $row['image'];
+        }
+
+        else if($value_img == "changed"){
+            $extensao = pathinfo($imagem['name'], PATHINFO_EXTENSION);
+            $nome_imagem = sha1(uniqid($imagem['name'])).".".$extensao;
+            $upload = $urlimg;
+
+            $this->img_name_final = $nome_imagem;
+
+            unlink($url_img.$row['image']);
+            move_uploaded_file($imagem['tmp_name'], $upload.$nome_imagem);
+        }
+
+        else if($value_img == "empty"){
+            $nome_imagem = sha1(uniqid("semfoto")).".png";
+
+            $this->img_name_final = $nome_imagem;
+
+            unlink($url_img.$row['image']);
+            copy("../images/img/semfoto.png",$urlimg.$nome_imagem);
+        }
     }
 }
 

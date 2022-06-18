@@ -441,107 +441,202 @@
                                 </table>
                             </div>
                             <div id="myModal" class="modal">
-                                        <!-- Modal content -->
+                                <div class="card">
+                                    <div style="text-align: center; text-transform: uppercase;" class="card-header">
+                                        <span id="title-form">Envie seu <strong>jogo</strong></span> 
+                                        <span class="close">&times;</span>
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="../php/functions_products.php" method="post" enctype="multipart/form-data" class="form-horizontal">   
                                             
-                                        <div class="card">
-                                            <div style="text-align: center; text-transform: uppercase;" class="card-header">
-                                                Envie seu <strong>jogo</strong> 
-                                                <span class="close">&times;</span>
-                                            </div>
-                                            <div class="card-body card-block">
-                                                <form action="../php/functions_products.php" method="post" enctype="multipart/form-data" class="form-horizontal">   
-                                                    
-                                                    <?php
+                                            <?php
 
-                                                        if(isset($_SESSION['failed'])){
-                                                            $name = $_SESSION['name'];
-                                                            $price = $_SESSION['price'];
-                                                            $description = $_SESSION['description'];
-                                                            ?>
-                                                                <span class="alert login100-form-title p-b-10 m-b-10"><?php echo $_SESSION['failed'];?></span>
-                                                                <br>
-                                                            <?php
-                                                        }
-                                                        else{
-                                                            $name= "";
-                                                            $price = "";
-                                                            $description = "";
-                                                        }
-                                                        unset($_SESSION['failed'], $_SESSION['name'], $_SESSION['price'], $_SESSION['description'])
-
+                                                if(isset($_SESSION['failed'])){
+                                                    $name = $_SESSION['name'];
+                                                    $price = $_SESSION['price'];
+                                                    $description = $_SESSION['description'];
                                                     ?>
+                                                        <span class="alert login100-form-title p-b-10 m-b-10"><?php echo $_SESSION['failed'];?></span>
+                                                        <br>
+                                                    <?php
+                                                }
+                                                else{
+                                                    $name= "";
+                                                    $price = "";
+                                                    $description = "";
+                                                }
+                                                unset($_SESSION['failed'], $_SESSION['name'], $_SESSION['price'], $_SESSION['description'])
 
-                                                    <input type="hidden" id="id_product-input" name="id_product-input" value="">
-                                                    <div class="row form-group">
-                                                        <label for="image">
-                                                        </label>
-                                                        <div class="m-b-10 max-width max-width-game">
-                                                            <div class="image_container">
-                                                                <img src="../images/img/semimagem.png" alt="Selecione uma imagem" class="imgphoto img-game" id="imgphoto">
-                                                            </div>
-                                                            <input type="file" id="flimage" name="image-input" accept="image/*">
-                                                            <input type="hidden" name="value_img_product" id="value_img_product" value="no changed">
-                                                        </div>
+                                            ?>
+
+                                            <input type="hidden" id="id_product-input" name="id_product-input" value="">
+                                            <div class="row form-group">
+                                                <label for="image">
+                                                </label>
+                                                <div class="m-b-10 max-width max-width-game">
+                                                    <div class="image_container">
+                                                        <img src="../images/img/semimagem.png" alt="Selecione uma imagem" class="imgphoto img-game" id="imgphoto">
                                                     </div>
-                                                    
-                                                    <div class="row form-group">
-                                                        <div class="col col-md-3">
-                                                            <label for="text-input" class=" form-control-label">Nome:</label>
-                                                        </div>
-                                                        <div class="col-12 col-md-9">
-                                                            <input type="text" id="name-input" name="name-input" placeholder="Nome" class="form-control" value="<?php echo $name;?>">
-                                                            <small class="form-text text-muted">Digite aqui o nome do seu jogo:</small>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row form-group">
-                                                        <div class="col col-md-3">
-                                                            <label for="email-input" class=" form-control-label">Preço:</label>
-                                                        </div>
-                                                        <div class="col-12 col-md-9">
-                                                            <input type="number" step="0.01" id="price-input" name="price-input" placeholder="Preço" class="form-control" value="<?php echo $price;?>">
-                                                            <small class="help-block form-text">Digite o preço do seu jogo em $US</small>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="row form-group">
-                                                        <div class="col col-md-3">
-                                                            <label for="textarea-input" class=" form-control-label">Descrição:</label>
-                                                        </div>
-                                                        <div class="col-12 col-md-9">
-                                                            <textarea style="resize: none;" name="description-input" id="description-input" maxlength="255" rows="9" placeholder="Descrição" class="form-control" value="<?php echo $description;?>"></textarea>
-                                                            <small class="help-block form-text">Digite uma breve descrição do seu jogo</small>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row form-group">
-                                                        <div class="col col-md-3">
-                                                            <label for="select" class=" form-control-label">Gênero:</label>
-                                                        </div>
-                                                        <div class="col-12 col-md-9">
-                                                            <select id="genre-input" class="form-control" name="genre-input" >
-                                                                <option value="0">Por favor escolha</option>
-                                                                <option value="terror">Terror</option>
-                                                                <option value="ação">Ação</option>
-                                                                <option value="aventura">Aventura</option>
-                                                                <option value="puzzle">Puzzle</option>
-                                                                <option value="indie">Indie</option>
-                                                                <option value="Plataforma">Plataforma</option>
-                                                                <option value="RPG">RPG</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-footer">
-                                                        <button type="submit" class="btn btn-primary btn-sm" id="btn-form" name="submit-insert">
-                                                            <i class="fa fa-dot-circle-o"></i> Enviar
-                                                        </button>
-                                                        <button type="reset" class="btn btn-danger btn-sm" id="reset-btn">
-                                                            <i class="fa fa-ban"></i> Resetar
-                                                        </button>
-                                                    </div>
-                                                </form>
+                                                    <input type="file" id="flimage" name="image-input" accept="image/*">
+                                                    <input type="hidden" name="value_img_product" id="value_img_product" value="no changed">
+                                                </div>
                                             </div>
-                                        </div>
-                                    
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Nome:</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="name-input" name="name-input" placeholder="Nome" class="form-control" value="<?php echo $name;?>">
+                                                    <small class="form-text text-muted">Digite aqui o nome do seu jogo:</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="email-input" class=" form-control-label">Preço:</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="number" maxlength="6" step="0.01" id="price-input" name="price-input" placeholder="Preço" class="form-control" value="<?php echo $price;?>">
+                                                    <small class="help-block form-text">Digite o preço do seu jogo em $US</small>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="textarea-input" class=" form-control-label">Descrição:</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <textarea style="resize: none;" name="description-input" id="description-input" maxlength="255" rows="9" placeholder="Descrição" class="form-control" value="<?php echo $description;?>"></textarea>
+                                                    <small class="help-block form-text">Digite uma breve descrição do seu jogo</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Gênero:</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select id="genre-input" class="form-control" name="genre-input" >
+                                                        <option value="0">Por favor escolha</option>
+                                                        <option value="terror">Terror</option>
+                                                        <option value="ação">Ação</option>
+                                                        <option value="aventura">Aventura</option>
+                                                        <option value="puzzle">Puzzle</option>
+                                                        <option value="indie">Indie</option>
+                                                        <option value="Plataforma">Plataforma</option>
+                                                        <option value="RPG">RPG</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm" id="btn-form" name="submit-insert">
+                                                    <i class="fa fa-dot-circle-o"></i> Enviar
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-sm" id="reset-btn" name="reset-btn">
+                                                    <i class="fa fa-ban"></i> Resetar
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
+                            </div>
+                            <!-- form para update dos jogos -->
+                            <div id="myModalEdit" class="modal">
+                                <div class="card">
+                                    <div style="text-align: center; text-transform: uppercase;" class="card-header">
+                                        <span id="title-form">Atualize seu<strong>jogo</strong></span> 
+                                        <span class="close">&times;</span>
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="../php/functions_products.php" method="post" enctype="multipart/form-data" class="form-horizontal">   
+                                            
+                                            <?php
+
+                                                if(isset($_SESSION['failed'])){
+                                                    $name = $_SESSION['name'];
+                                                    $price = $_SESSION['price'];
+                                                    $description = $_SESSION['description'];
+                                                    ?>
+                                                        <span class="alert login100-form-title p-b-10 m-b-10"><?php echo $_SESSION['failed'];?></span>
+                                                        <br>
+                                                    <?php
+                                                }
+                                                else{
+                                                    $name= "";
+                                                    $price = "";
+                                                    $description = "";
+                                                }
+                                                unset($_SESSION['failed'], $_SESSION['name'], $_SESSION['price'], $_SESSION['description'])
+
+                                            ?>
+
+                                            <input type="hidden" id="id-product-input-edit" name="id-product-input-edit" value="">
+                                            <div class="row form-group">
+                                                <label for="image">
+                                                </label>
+                                                <div class="m-b-10 max-width max-width-game">
+                                                    <div class="image_container">
+                                                        <img src="../images/img/semimagem.png" alt="Selecione uma imagem" class="imgphoto img-game" id="imgphoto-edit">
+                                                    </div>
+                                                    <input type="file" id="flimage-edit" name="image-input-edit" accept="image/*">
+                                                    <input type="hidden" name="value_img_product_edit" id="value_img_product_update" value="no changed">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Nome:</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="name-input-edit" name="name-input" placeholder="Nome" class="form-control" value="<?php echo $name;?>">
+                                                    <small class="form-text text-muted">Digite aqui o nome do seu jogo:</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="email-input" class=" form-control-label">Preço:</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="number" maxlength="6" step="0.01" id="price-input-edit" name="price-input" placeholder="Preço" class="form-control" value="<?php echo $price;?>">
+                                                    <small class="help-block form-text">Digite o preço do seu jogo em $US</small>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="textarea-input" class=" form-control-label">Descrição:</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <textarea style="resize: none;" name="description-input" id="description-input-edit" maxlength="255" rows="9" placeholder="Descrição" class="form-control" value="<?php echo $description;?>"></textarea>
+                                                    <small class="help-block form-text">Digite uma breve descrição do seu jogo</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Gênero:</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select id="genre-input-edit" class="form-control" name="genre-input" >
+                                                        <option value="">Por favor escolha</option>
+                                                        <option value="Terror">Terror</option>
+                                                        <option value="Ação">Ação</option>
+                                                        <option value="Aventura">Aventura</option>
+                                                        <option value="Puzzle">Puzzle</option>
+                                                        <option value="Indie">Indie</option>
+                                                        <option value="Plataforma">Plataforma</option>
+                                                        <option value="RPG">RPG</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm" id="btn-form" name="submit-update">
+                                                    <i class="fa fa-dot-circle-o"></i> Update
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -602,57 +697,20 @@
     <!-- Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-    <!-- Vendor JS       -->
-    <script src="vendor/slick/slick.min.js">
-    </script>
+    <!-- Vendor JS-->
+    <script src="vendor/slick/slick.min.js"></script>
     <script src="vendor/wow/wow.min.js"></script>
     <script src="vendor/animsition/animsition.min.js"></script>
-    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="vendor/counter-up/jquery.counterup.min.js">
-    </script>
+    <script src="vendor/counter-up/jquery.counterup.min.js"></script>
     <script src="vendor/circle-progress/circle-progress.min.js"></script>
     <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="vendor/select2/select2.min.js">
-    </script>
-
-    <script type="text/javascript">
-        function toEdit(id_product,name,img_product,price,genre,description){
-            
-            const edit = document.getElementsByClassName('btn-edit');
-            var modal = document.getElementById("myModal");
-      
-            // Get the button that opens the modal
-            var btn = document.getElementById("myBtn");
-      
-            var span = document.getElementsByClassName("close")[0];
-      
-            var reset = document.getElementById("reset-btn");
-      
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden";
-
-            let btn_form = document.getElementById('btn-form');
-
-            btn_form.textContent= "update";
-      
-            let imgphoto_product = document.getElementById('imgphoto').src = "../images/img_product/" + img_product;
-            let id_product_input = document.getElementById('id_product-input').value = id_product;
-            let name_input = document.getElementById('name-input').value = name;
-            let price_input = document.getElementById('price-input').value = price;
-            let genre_input = document.getElementById('genre-input').value = genre;
-            let description_input = document.getElementById('description-input').value = description;
-
-
-            
-        }
-    </script>                                                   
+    <script src="vendor/select2/select2.min.js"></script>                                      
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-
 </body>
 
 </html>
