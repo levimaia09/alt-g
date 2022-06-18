@@ -450,7 +450,6 @@
                                         <form action="../php/functions_products.php" method="post" enctype="multipart/form-data" class="form-horizontal">   
                                             
                                             <?php
-
                                                 if(isset($_SESSION['failed'])){
                                                     $name = $_SESSION['name'];
                                                     $price = $_SESSION['price'];
@@ -466,7 +465,6 @@
                                                     $description = "";
                                                 }
                                                 unset($_SESSION['failed'], $_SESSION['name'], $_SESSION['price'], $_SESSION['description'])
-
                                             ?>
 
                                             <input type="hidden" id="id_product-input" name="id_product-input" value="">
@@ -478,7 +476,7 @@
                                                         <img src="../images/img/semimagem.png" alt="Selecione uma imagem" class="imgphoto img-game" id="imgphoto">
                                                     </div>
                                                     <input type="file" id="flimage" name="image-input" accept="image/*">
-                                                    <input type="hidden" name="value_img_product" id="value_img_product" value="no changed">
+                                                    <input type="hidden" name="value_img_product" id="value_img_product" value="empty">
                                                 </div>
                                             </div>
                                             
@@ -543,14 +541,13 @@
                             <div id="myModalEdit" class="modal">
                                 <div class="card">
                                     <div style="text-align: center; text-transform: uppercase;" class="card-header">
-                                        <span id="title-form">Atualize seu<strong>jogo</strong></span> 
+                                        <span id="title-form">Atualize seu <strong>jogo</strong></span> 
                                         <span class="close">&times;</span>
                                     </div>
                                     <div class="card-body card-block">
                                         <form action="../php/functions_products.php" method="post" enctype="multipart/form-data" class="form-horizontal">   
                                             
                                             <?php
-
                                                 if(isset($_SESSION['failed'])){
                                                     $name = $_SESSION['name'];
                                                     $price = $_SESSION['price'];
@@ -566,7 +563,6 @@
                                                     $description = "";
                                                 }
                                                 unset($_SESSION['failed'], $_SESSION['name'], $_SESSION['price'], $_SESSION['description'])
-
                                             ?>
 
                                             <input type="hidden" id="id-product-input-edit" name="id-product-input-edit" value="">
@@ -577,7 +573,7 @@
                                                     <div class="image_container">
                                                         <img src="../images/img/semimagem.png" alt="Selecione uma imagem" class="imgphoto img-game" id="imgphoto-edit">
                                                     </div>
-                                                    <input type="file" id="flimage-edit" name="image-input-edit" accept="image/*">
+                                                    <input type="file" id="flimage" name="image-input-edit" accept="image/*">
                                                     <input type="hidden" name="value_img_product_edit" id="value_img_product_update" value="no changed">
                                                 </div>
                                             </div>
@@ -587,7 +583,7 @@
                                                     <label for="text-input" class=" form-control-label">Nome:</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="name-input-edit" name="name-input" placeholder="Nome" class="form-control" value="<?php echo $name;?>">
+                                                    <input type="text" id="name-input-edit" name="name-input-edit" placeholder="Nome" class="form-control" value="<?php echo $name;?>">
                                                     <small class="form-text text-muted">Digite aqui o nome do seu jogo:</small>
                                                 </div>
                                             </div>
@@ -596,7 +592,7 @@
                                                     <label for="email-input" class=" form-control-label">Preço:</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="number" maxlength="6" step="0.01" id="price-input-edit" name="price-input" placeholder="Preço" class="form-control" value="<?php echo $price;?>">
+                                                    <input type="number" maxlength="6" step="0.01" id="price-input-edit" name="price-input-edit" placeholder="Preço" class="form-control" value="<?php echo $price;?>">
                                                     <small class="help-block form-text">Digite o preço do seu jogo em $US</small>
                                                 </div>
                                             </div>
@@ -606,7 +602,7 @@
                                                     <label for="textarea-input" class=" form-control-label">Descrição:</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <textarea style="resize: none;" name="description-input" id="description-input-edit" maxlength="255" rows="9" placeholder="Descrição" class="form-control" value="<?php echo $description;?>"></textarea>
+                                                    <textarea style="resize: none;" name="description-input-edit" id="description-input-edit" maxlength="255" rows="9" placeholder="Descrição" class="form-control" value="<?php echo $description;?>"></textarea>
                                                     <small class="help-block form-text">Digite uma breve descrição do seu jogo</small>
                                                 </div>
                                             </div>
@@ -615,8 +611,8 @@
                                                     <label for="select" class=" form-control-label">Gênero:</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <select id="genre-input-edit" class="form-control" name="genre-input" >
-                                                        <option value="">Por favor escolha</option>
+                                                    <select id="genre-input-edit" class="form-control" name="genre-input-edit" >
+                                                        <option value="0">Por favor escolha</option>
                                                         <option value="Terror">Terror</option>
                                                         <option value="Ação">Ação</option>
                                                         <option value="Aventura">Aventura</option>

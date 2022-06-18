@@ -100,7 +100,7 @@
                     $e2->update_image();
                     $nome_imagem = $e2->img_name_final;
     
-                    mysqli_query($mysqli, "UPDATE login SET name='$name', image='$nome_imagem', price='$price', genre='$genre', description='$description' WHERE id='$id_product'")
+                    mysqli_query($mysqli, "UPDATE products SET name='$name', image='$nome_imagem', price='$price', genre='$genre', description='$description' WHERE id='$id_product'")
                     or die("não foi possível inserir a query de update");
         
                     header("Location: ../admin/index.php");

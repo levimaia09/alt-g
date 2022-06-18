@@ -13,8 +13,8 @@ function toEdit(id_product,name,img_product,price,genre,description){
   let id_product_input = document.getElementById('id-product-input-edit').value = id_product;
   let name_input = document.getElementById('name-input-edit').value = name;
   let price_input = document.getElementById('price-input-edit').value = price;
-  let description_input = document.getElementById('description-input-edit').value = description;
   let genre_input = document.getElementById('genre-input-edit').value = genre;
+  let description_input = document.getElementById('description-input-edit').value = description;
 }
 
 // script para deixar o botão hamburguer funcional 
@@ -33,7 +33,8 @@ img.addEventListener('click', () => {
 let photo = document.getElementById("imgphoto");
 let file = document.getElementById("flimage");
 let img_product = document.getElementById("imgphoto");
-let value_img = document.getElementById("value_img_product");
+let value_img_product = document.getElementById("value_img_product");
+let value_img_product_edit = document.getElementById("value_img_product_edit");
 
 photo.addEventListener('click', ()=>{
     file.click();
@@ -64,36 +65,43 @@ btn.addEventListener('click', () => {
 });
 
 //script para fechar o modal:
-let close_button = document.getElementsByClassName("close")[0];
+let close_button = document.getElementsByClassName("close");
 let reset_btn = document.getElementById("reset-btn");
 //inputs para resetar o valor
 let inputs = document.querySelectorAll('#name-input, #price-input, #description-input, #genre-input');
 
-//botão para fechar o form
-close_button.addEventListener('click', () => {
-  let a = confirm("Você quer mesmo sair ?");
+//script para os botões de fechar os forms
+for(var i=0; i < close_button.length; i++){
 
-  if (a == true) {
-    openClose('myModal');
-    document.body.style.overflow = "auto";
+  close_button[i].addEventListener('click', () => {
+    let a = confirm("Você quer mesmo sair ?");
 
-    inputs.forEach(input => {
-      input.value = '';
+    if (a == true) {
+      let modals = document.querySelectorAll('#myModal, #myModalEdit');
+      for(var i=0; i < modals.length; i++){
+        modals[i].classList.remove('active');
+      }
+      document.body.style.overflow = "auto";
       img_product.src = "../images/img/semimagem.png";
-      value_img_product.value = "no changed";
-    });
-  }
-});
+      value_img_product.value = "empty";
+      value_img_product_edit.value = "no changed";
+
+      inputs.forEach((input) => {
+        input.value = '';
+      });
+    }
+  });
+}
 
 //botão para resetar os valores dos inputs do form
 reset_btn.addEventListener('click', () => {
   let a = confirm("Você quer mesmo sair ?");
 
   if (a == true) {
-    inputs.forEach(input => {
+    img_product.src = "../images/img/semimagem.png";
+    value_img_product.value = "empty";
+    inputs.forEach((input) => {
       input.value = '';
-      img_product.src = "../images/img/semimagem.png";
-      value_img_product.value = "no changed";
     });
   }
 });

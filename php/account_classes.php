@@ -250,8 +250,12 @@ class Image {
         $imagem = $this->imagem;
         $value_img = $this->value_img;
 
-        if($value_img == "no changed"){
-            $this->img_name_final = $row['image'];
+        if($value_img == "empty"){
+            $nome_imagem = sha1(uniqid("semfoto")).".png";
+
+            $this->img_name_final = $nome_imagem;
+
+            copy("../images/img/semfoto.png",$urlimg.$nome_imagem);
         }
 
         else if($value_img == "changed"){
@@ -263,15 +267,6 @@ class Image {
 
             move_uploaded_file($imagem['tmp_name'], $upload.$nome_imagem);
         }
-
-        else if($value_img == "empty"){
-            $nome_imagem = sha1(uniqid("semfoto")).".png";
-
-            $this->img_name_final = $nome_imagem;
-
-            copy("../images/img/semfoto.png",$urlimg.$nome_imagem);
-        }
-        
     }
 
     function update_image(){
