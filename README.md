@@ -11,16 +11,16 @@ Estrutura do banco de dados para o sistema funcionar:
 banco de dados:
 ============================================================================================
 
-CREATE DATABASE `test2` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `test2`;
+CREATE DATABASE `altg` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `altg`;
 
 ============================================================================================
 
 
-tabela login: 
+tabela users: 
 ============================================================================================
 
-CREATE TABLE IF NOT EXISTS `login` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
   `email` varchar(100) NOT NULL,
   `image` varchar(255) NOT NULL,
