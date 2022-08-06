@@ -1,6 +1,7 @@
 @extends('layouts.main_user')
 
 @section('title', 'ALT-G')
+@section('active3', 'active')
 
 @section('content')
     <div class="single-product-area">

@@ -1,6 +1,7 @@
 @extends('layouts.main_user')
 
 @section('title', 'ALT-G')
+@section('active1', 'active')
 
 @section('content')
     <div class="site-branding-area">
